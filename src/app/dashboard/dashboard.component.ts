@@ -1,9 +1,9 @@
 import { Component } from '@angular/core'
 
 @Component({
-    selector: 'dashboard',
+    selector: 'app-dashboard',
     templateUrl: './dashboard.component.html'
 })
 export class DashboardComponent {
-    title: string = "this is awesome"
+    title = 'this is awesome'
 }
