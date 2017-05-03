@@ -8,6 +8,7 @@ import { appRoutes } from './routes';
 
 import { DashboardComponent } from './dashboard/dashboard.component'
 import { NavbarComponent } from './navbar/navbar.component'
+import { InitialLearningComponent } from './initial-learnings/initial-learning.component'
 
 @NgModule({
    imports: [
@@ -19,7 +20,8 @@ import { NavbarComponent } from './navbar/navbar.component'
   declarations: [
     MyBlogComponent,
     DashboardComponent,
-    NavbarComponent
+    NavbarComponent,
+    InitialLearningComponent
   ],
   providers: [],
   bootstrap: [MyBlogComponent]
