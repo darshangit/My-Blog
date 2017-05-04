@@ -4,7 +4,6 @@ import { Component } from '@angular/core'
     selector: 'app-initial-learnings',
     templateUrl: './initial-learning.component.html',
     styles:[`
-
     `]
 })
 export class InitialLearningComponent { 

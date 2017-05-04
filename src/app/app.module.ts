@@ -9,6 +9,7 @@ import { appRoutes } from './routes';
 import { DashboardComponent } from './dashboard/dashboard.component'
 import { NavbarComponent } from './navbar/navbar.component'
 import { InitialLearningComponent } from './initial-learnings/initial-learning.component'
+import { FooterComponent } from './footer/footer.component'
 
 @NgModule({
    imports: [
@@ -21,6 +22,7 @@ import { InitialLearningComponent } from './initial-learnings/initial-learning.c
     MyBlogComponent,
     DashboardComponent,
     NavbarComponent,
+    FooterComponent,
     InitialLearningComponent
   ],
   providers: [],
