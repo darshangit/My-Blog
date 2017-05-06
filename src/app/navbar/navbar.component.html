@@ -11,9 +11,11 @@
 
         <ul class="nav navbar-nav navbar-right">
             <li>
-                <a href="#" class="glyphicon glyphicon-user"> Sign-Up</a>
+                <button class="btn btn-default glyphicon glyphicon-user" appModalTrigger="signUp"> Sign-Up</button>
+                <!--<a class="glyphicon glyphicon-user" modal-trigger="signUp"> Sign-Up</a>-->
             </li>
             <li>
+                <!--<button class="btn btn-default glyphicon glyphicon-log-in"> Login</button>-->
                 <a href="#" class="glyphicon glyphicon-log-in"> Login</a>
             </li>
         </ul>
@@ -26,3 +28,10 @@
         </form>
     </div>
 </nav>
+
+<app-signup-modal elementId="signUp">
+    <div class="list group">
+        HI
+    </div>
+
+</app-signup-modal>

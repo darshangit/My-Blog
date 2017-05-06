@@ -10,6 +10,10 @@ import { DashboardComponent } from './dashboard/dashboard.component'
 import { NavbarComponent } from './navbar/navbar.component'
 import { InitialLearningComponent } from './initial-learnings/initial-learning.component'
 import { FooterComponent } from './footer/footer.component'
+import { SignupComponent } from './modals/signup.modal.component'
+import { JQ_TOKEN } from './common/jQuery.services'
+
+declare const jQuery: Object
 
 @NgModule({
    imports: [
@@ -23,9 +27,16 @@ import { FooterComponent } from './footer/footer.component'
     DashboardComponent,
     NavbarComponent,
     FooterComponent,
-    InitialLearningComponent
+    InitialLearningComponent,
+    SignupComponent
   ],
-  providers: [],
+  providers: [
+{
+  provide: JQ_TOKEN,
+  useValue: jQuery
+}
+
+  ],
   bootstrap: [MyBlogComponent]
 })
 export class AppModule { }
