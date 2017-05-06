@@ -12,6 +12,7 @@ import { InitialLearningComponent } from './initial-learnings/initial-learning.c
 import { FooterComponent } from './footer/footer.component'
 import { SignupComponent } from './modals/signup.modal.component'
 import { JQ_TOKEN } from './common/jQuery.services'
+import { ModaltriggerDirective } from './modals/modal.trigger.directive'
 
 declare const jQuery: Object
 
@@ -28,7 +29,8 @@ declare const jQuery: Object
     NavbarComponent,
     FooterComponent,
     InitialLearningComponent,
-    SignupComponent
+    SignupComponent,
+    ModaltriggerDirective
   ],
   providers: [
 {
