@@ -13,6 +13,7 @@ import { FooterComponent } from './footer/footer.component'
 import { SignupComponent } from './modals/signup.modal.component'
 import { JQ_TOKEN } from './common/jQuery.services'
 import { ModaltriggerDirective } from './modals/modal.trigger.directive'
+import { PasswordValidatorDirective } from "app/modals/passwordValidator.directive";
 
 declare const jQuery: Object
 
@@ -30,7 +31,8 @@ declare const jQuery: Object
     FooterComponent,
     InitialLearningComponent,
     SignupComponent,
-    ModaltriggerDirective
+    ModaltriggerDirective,
+    PasswordValidatorDirective
   ],
   providers: [
 {
