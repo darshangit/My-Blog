@@ -1,6 +1,6 @@
 {
-  "name": "my-blog",
-  "version": "0.0.0",
+  "name": "angular-on-wheels",
+  "version": "1.0.0",
   "license": "@DashSatya",
   "scripts": {
     "ng": "ng",

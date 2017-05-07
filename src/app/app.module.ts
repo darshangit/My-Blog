@@ -13,7 +13,7 @@ import { FooterComponent } from './footer/footer.component'
 import { SignupComponent } from './modals/signup.modal.component'
 import { JQ_TOKEN } from './common/jQuery.services'
 import { ModaltriggerDirective } from './modals/modal.trigger.directive'
-import { PasswordValidatorDirective } from "app/modals/passwordValidator.directive";
+import { PasswordValidatorDirective } from 'app/modals/passwordValidator.directive'
 
 declare const jQuery: Object
 

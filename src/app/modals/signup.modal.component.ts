@@ -1,8 +1,10 @@
 import {
-    Component, Input, Inject, ViewChild, ElementRef
+    Component, Input, Inject, ViewChild, ElementRef, OnChanges
 } from '@angular/core'
 
 import { JQ_TOKEN } from '../common/jQuery.services'
+import { FormGroup} from '@angular/forms'
+
 
 @Component({
     selector: 'app-signup-modal',
@@ -13,21 +15,17 @@ import { JQ_TOKEN } from '../common/jQuery.services'
 })
 export class SignupComponent {
     @Input() elementId: string
+    @Input() password: string
     @ViewChild('modalcontainer') containerEL: ElementRef
-
     constructor( @Inject(JQ_TOKEN) private $: any) { }
-    cancel() {
-        this.$(this.containerEL.nativeElement).modal('hide')
-    }
+    
+    // cancel() {
+    //     this.$(this.containerEL.nativeElement).modal('hide')
+    // }
 
     signUp(formValues) {
-        console.log(formValues.name)
-    }
+        console.log(formValues)
+         this.$(this.containerEL.nativeElement).modal('hide')
 
-    validatePassword(formValues) {
-        console.log(formValues.password)
-        console.log(formValues.repassword)
-        console.log(formValues.password === formValues.repassword)
-        return formValues.password === formValues.repassword
     }
 }

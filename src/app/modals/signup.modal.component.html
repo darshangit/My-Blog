@@ -8,9 +8,7 @@
             </div>
             <div class="modal-body">
                 <!--<ng-content></ng-content>-->
-
-
-                <form #signUpForm="ngForm" (ngSubmit)="signUp(ngForm.value)" autocomplete="off" novalidate>
+                <form #signUpForm="ngForm" (ngSubmit)="signUp(signUpForm.value)" autocomplete="off" novalidate>
                     <div class="form-group">
                         <label for="name">Name</label>
                         <em *ngIf="signUpForm.controls.name?.invalid && signUpForm.controls.name?.touched && signUpForm.controls.name?.errors.required">Required</em>
@@ -20,25 +18,25 @@
                     <div class="form-group">
                         <label for="email">Email</label>
                         <em *ngIf="signUpForm.controls.email?.invalid && signUpForm.controls.email?.touched && signUpForm.controls.email?.errors.required"> Required</em>
-                        <em *ngIf="signUpForm.controls.email?.invalid && signUpForm.controls.email?.touched && signUpForm.controls.email?.errors.pattern"> Enter Valid Email</em>
+                        <em *ngIf="signUpForm.controls.email?.invalid && signUpForm.controls.email?.touched && signUpForm.controls.email?.errors.pattern"> Enter valid email-id</em>
                         <input (ngModel)="email" class="form-control" pattern="[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?" name="email" id="email" type="text" required maxlength="40"/>
                     </div>
                     <div appValidatePasswordDirective ngModelGroup="ngpassDirective" #ngpassDirective="ngModelGroup">
                     <div class="form-group">
                         <label for="password">Password</label>
-                        <em *ngIf="signUpForm.controls.password?.invalid && signUpForm.controls.password?.touched && signUpForm.controls.password?.errors.required"> Required</em> 
-                        <em *ngIf="signUpForm.controls.password?.invalid && signUpForm.controls.password?.touched && signUpForm.controls.password?.errors.minlength"> Must be between 7 and 15 characters</em> 
-
-                        <input (ngModel)="password" class="form-control" name="password" id="password" type="password" required minlength=7 maxlength=15/>
+                        <em *ngIf="ngpassDirective.control?.controls?.password?.invalid && ngpassDirective.control?.controls?.password?.touched && ngpassDirective.control?.controls?.password?.errors.required"> Required</em> 
+                        <em *ngIf="ngpassDirective.control?.controls?.password?.invalid && ngpassDirective.control?.controls?.password?.touched && ngpassDirective.control?.controls?.password?.errors.minlength"> Must be between 7 and 15 characters</em> 
+                        <input (ngModel)="password" class="form-control" name="password" id="password" type="password" required minlength="7" maxlength="15"/>
                     </div>
                     <div class="form-group">
                         <label for="repassword">Confirm Password</label>
-                        <em *ngIf = "!signUpForm.controls.password?.invalid && !validatePassword(signUpForm.value)"> Password Mismatch</em> 
-                        <input (ngModel)="repassword" [disabled] = "signUpForm.controls.password?.invalid" class="form-control" name="repassword" id="repassword" type="password" required minlength="7" maxlength="15"/>
+                        <em *ngIf = "ngpassDirective.invalid && ngpassDirective.control?.controls?.repassword?.dirty"> Password Mismatch</em> 
+                        <input (ngModel)="repassword" [disabled]="ngpassDirective.control?.controls?.password?.invalid" class="form-control" name="repassword" id="repassword" type="password" required minlength="7" maxlength="15"/>
                     </div>
                     </div>
                     <button type="submit" class="btn btn-primary" [disabled]="signUpForm.invalid">Submit</button>
-                    <button type="reset" class="btn btn-default" (click)="cancel()">Cancel</button>
+                    <button type="reset" [disabled] = "!signUpForm.dirty" class="btn btn-default">Reset</button>
+
                 </form>
         
             </div>
