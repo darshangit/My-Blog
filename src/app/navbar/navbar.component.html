@@ -11,14 +11,10 @@
 
         <ul class="nav navbar-nav navbar-right">
             <li>
-                <!--<button class="btn btn-default glyphicon glyphicon-user" appModalTrigger="signUp"> Sign-Up</button>-->
                  <a class="myAnchor glyphicon glyphicon-log-in"  appModalTrigger="signUp"> Sign-Up</a>
-
-                <!--<a class="glyphicon glyphicon-user" modal-trigger="signUp"> Sign-Up</a>-->
             </li>
             <li>
-                <!--<button class="btn btn-default glyphicon glyphicon-log-in"> Login</button>-->
-                <a href="#" class="glyphicon glyphicon-log-in"> Login</a>
+                <a class="myAnchor glyphicon glyphicon-log-in" appModalTrigger="login"> Login</a>
             </li>
         </ul>
 
@@ -32,5 +28,7 @@
 </nav>
 
 <app-signup-modal elementId="signUp">
-
 </app-signup-modal>
+
+<app-login-modal elementId="login">
+</app-login-modal>

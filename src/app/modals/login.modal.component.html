@@ -1,0 +1,26 @@
+<div id="{{elementId}}" #logincontainer class="modal fade">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal"></button>
+                <h4 class="modal-title">Enter Your Credentials</h4>
+            </div>
+            <div class="modal-body">
+                <form #loginForm="ngForm" (ngSubmit)="login(loginForm.value)" autocomplete="off" novalidate>
+                    <div class="form-group">
+                        <label for="email">Email</label>
+                        <em *ngIf="loginForm.controls.email?.invalid && loginForm.controls.email?.touched && loginForm.controls.email?.errors.pattern"> Enter valid email</em>
+                        <input (ngModel)="email" name="email" id="email" type="text" class="form-control" required maxlength="40" pattern="[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?"/>
+                    </div>
+                    <div class="form-group">
+                        <label for="password">Password</label>
+                        <em *ngIf="loginForm.controls.password?.invalid && loginForm.controls.password?.touched"> Invalid Password</em>
+                        <input (ngModel)="password" name="password" id="password" type="password" class="form-control" required minlength="7" maxlength="15"/>
+                    </div>
+                    <button type="submit" class="btn btn-primary" [disabled]="loginForm.invalid">Login</button>
+                    <button type="reset" class="btn btn-default" [disabled]="!loginForm.dirty">Reset</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
