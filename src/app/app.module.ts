@@ -15,11 +15,12 @@ import { JQ_TOKEN } from './common/jQuery.services'
 import { ModaltriggerDirective } from './modals/modal.trigger.directive'
 import { PasswordValidatorDirective } from 'app/modals/passwordValidator.directive'
 import { LoginComponent } from 'app/modals/login.modal.component'
+import { UserLoginService } from 'app/services/user-login.services'
 
 declare const jQuery: Object
 
 @NgModule({
-   imports: [
+  imports: [
     BrowserModule,
     FormsModule,
     HttpModule,
@@ -37,10 +38,11 @@ declare const jQuery: Object
     PasswordValidatorDirective
   ],
   providers: [
-{
-  provide: JQ_TOKEN,
-  useValue: jQuery
-}
+    UserLoginService,
+    {
+      provide: JQ_TOKEN,
+      useValue: jQuery
+    }
 
   ],
   bootstrap: [MyBlogComponent]
