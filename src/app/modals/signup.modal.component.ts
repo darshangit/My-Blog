@@ -21,7 +21,6 @@ export class SignupComponent {
     //     this.$(this.containerEL.nativeElement).modal('hide')
     // }
 
-
     signUp(formValues) {
         console.log(formValues)
         console.log(formValues.name)
