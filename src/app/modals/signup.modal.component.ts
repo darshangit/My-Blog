@@ -1,7 +1,9 @@
 import { Component, Input, Inject, ViewChild, ElementRef, OnChanges } from '@angular/core'
 import { JQ_TOKEN } from '../common/jQuery.services'
-import { FormGroup} from '@angular/forms'
+import { FormGroup } from '@angular/forms'
 import { UserLoginService } from '../services/user-login.services'
+import { UserDetails } from 'app/data-models/user-details.model'
+import { UserResponse } from 'app/data-models/signup-response.model'
 
 
 @Component({
@@ -12,20 +14,32 @@ import { UserLoginService } from '../services/user-login.services'
     ]
 })
 export class SignupComponent {
+    success: boolean
     @Input() elementId: string
     @Input() password: string
     @ViewChild('modalcontainer') containerEL: ElementRef
     constructor( @Inject(JQ_TOKEN) private $: any, private userLoginService: UserLoginService) { }
-
     // cancel() {
     //     this.$(this.containerEL.nativeElement).modal('hide')
     // }
 
     signUp(formValues) {
-        console.log(formValues)
-        console.log(formValues.name)
-        this.userLoginService.saveLogin()
-        this.$(this.containerEL.nativeElement).modal('hide')
+        const user: UserDetails = {
+            email: formValues.email,
+            name: formValues.name,
+            password: formValues.ngpassDirective.password
+        }
+
+        this.userLoginService.saveLogin(user).subscribe((resp) => {
+            if(resp.status === 'Account Created Successfully' ){
+                this.success = true
+            }else{
+                this.success = false
+            }
+            console.log(resp.status)
+        } );
+
+        // this.$(this.containerEL.nativeElement).modal('hide')
 
     }
 }
