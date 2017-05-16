@@ -14,7 +14,9 @@ import { UserResponse } from 'app/data-models/signup-response.model'
     ]
 })
 export class SignupComponent {
-    success: boolean
+    responseRecieved = false
+    responseStatus: string
+    disableSubmit = false
     @Input() elementId: string
     @Input() password: string
     @ViewChild('modalcontainer') containerEL: ElementRef
@@ -31,15 +33,15 @@ export class SignupComponent {
         }
 
         this.userLoginService.saveLogin(user).subscribe((resp) => {
-            if(resp.status === 'Account Created Successfully' ){
-                this.success = true
-            }else{
-                this.success = false
-            }
+            this.responseStatus = resp.status
+            this.responseRecieved = true
             console.log(resp.status)
-        } );
+        });
 
-        // this.$(this.containerEL.nativeElement).modal('hide')
-
+        if (this.responseStatus === 'Account Created Successfully') {
+            this.disableSubmit = true
+        } else {
+            setTimeout(() => { this.$(this.containerEL.nativeElement).modal('hide') }, 3000)
+        }
     }
 }

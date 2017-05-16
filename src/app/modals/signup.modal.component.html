@@ -35,6 +35,7 @@
                         <input (ngModel)="repassword" [disabled]="ngpassDirective.control?.controls?.password?.invalid" class="form-control" name="repassword" id="repassword" type="password" required minlength="7" maxlength="15"/>
                     </div>
                     </div>
+                    <em *ngIf = "responseRecieved">{{responseStatus}}</em> 
                     <button type="submit" class="btn btn-primary" [disabled]="signUpForm.invalid">Submit</button>
                     <button type="reset" [disabled] = "!signUpForm.dirty" class="btn btn-default">Reset</button>
                 </form>
