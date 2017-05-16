@@ -1,4 +1,4 @@
-import { Component, Input, Inject, ViewChild, ElementRef, OnChanges } from '@angular/core'
+import { Component, Input, Inject, ViewChild, ElementRef, OnChanges, Output } from '@angular/core'
 import { JQ_TOKEN } from '../common/jQuery.services'
 import { FormGroup } from '@angular/forms'
 import { UserLoginService } from '../services/user-login.services'
@@ -15,8 +15,8 @@ import { UserResponse } from 'app/data-models/signup-response.model'
 })
 export class SignupComponent {
     responseRecieved = false
-    responseStatus: string
     disableSubmit = false
+    responseStatus: string
     @Input() elementId: string
     @Input() password: string
     @ViewChild('modalcontainer') containerEL: ElementRef
@@ -33,15 +33,13 @@ export class SignupComponent {
         }
 
         this.userLoginService.saveLogin(user).subscribe((resp) => {
-            this.responseStatus = resp.status
             this.responseRecieved = true
-            console.log(resp.status)
-        });
+            this.responseStatus = resp.status
 
-        if (this.responseStatus === 'Account Created Successfully') {
-            this.disableSubmit = true
-        } else {
-            setTimeout(() => { this.$(this.containerEL.nativeElement).modal('hide') }, 3000)
-        }
+            if (resp.status === 'Account Created Successfully') {
+                this.disableSubmit = true
+                 setTimeout(() => { this.$(this.containerEL.nativeElement).modal('hide') }, 3000)
+            }
+        });
     }
 }
