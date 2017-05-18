@@ -17,7 +17,8 @@
                         <em *ngIf="loginForm.controls.password?.invalid && loginForm.controls.password?.touched"> Invalid Password</em>
                         <input (ngModel)="password" name="password" id="password" type="password" class="form-control" required minlength="7" maxlength="15"/>
                     </div>
-                    <button type="submit" class="btn btn-primary" [disabled]="loginForm.invalid">Login</button>
+                    <em *ngIf="responseRecieved">{{responseStatus}}</em>
+                    <button type="submit" class="btn btn-primary" [disabled]="disableSubmit || loginForm.invalid">Login</button>
                     <button type="reset" class="btn btn-default" [disabled]="!loginForm.dirty">Reset</button>
                 </form>
             </div>
