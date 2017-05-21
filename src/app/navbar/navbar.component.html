@@ -14,7 +14,8 @@
                  <a class="myAnchor glyphicon glyphicon-log-in"  appModalTrigger="signUp"> Sign-Up</a>
             </li>
             <li>
-                <a class="myAnchor glyphicon glyphicon-log-in" appModalTrigger="login"> Login</a>
+                <a *ngIf ="!userService.isAuthenticated()" class="myAnchor glyphicon glyphicon-log-in" appModalTrigger="login"> Login</a>
+                <a *ngIf ="userService.isAuthenticated()" class="myAnchor glyphicon glyphicon-log-in" appModalTrigger="updateUser"> Welcome {{userService.getCurrentUserName()}}</a>
             </li>
         </ul>
 
@@ -33,3 +34,6 @@
 
 <app-login-modal elementId="login">
 </app-login-modal>
+
+<app-updateuser-modal elementId="updateUser">
+</app-updateuser-modal>

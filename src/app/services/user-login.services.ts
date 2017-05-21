@@ -9,7 +9,9 @@ import 'rxjs/Rx';
 
 @Injectable()
 export class UserLoginService {
-
+    currentuser: UserDetails
+    authentication = false
+    userUpdated = false
     constructor(private http: Http) { }
 
     saveLogin(user): Observable<UserResponse> {
@@ -30,8 +32,39 @@ export class UserLoginService {
         return this.http.post('/api/login', JSON.stringify(user), requestOp).map((response: Response) => {
             return response.json() as LoginResponse;
         }).catch(this.handleError);
+    }
 
+    updateUser(user): Observable<UserResponse> {
 
+        const headers = new Headers({'Content-Type': 'application/json'})
+        const requestOp = new RequestOptions({ headers })
+
+        return this.http.post('/api/updateuser', JSON.stringify(user), requestOp).map((response: Response) => {
+            this.userUpdated = true
+            return response.json() as UserResponse;
+        }).catch(this.handleError);
+    }
+
+    setCurrentUser(user: UserDetails) {
+        this.currentuser = user
+    }
+
+    getCurrentUserName(): string {
+        if (this.currentuser !== undefined) {
+            return this.currentuser.name
+        }
+    }
+
+    getCurrentEmail(): string {
+        return this.currentuser.email
+    }
+
+    isAuthenticated() {
+        return this.authentication
+    }
+
+    setAutheticatedFlag() {
+        this.authentication = true
     }
 
     private handleError(error: Response) {

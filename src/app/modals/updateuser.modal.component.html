@@ -1,0 +1,24 @@
+<div id="{{elementId}}" #updatecontainer class="modal fade">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal"></button>
+                <h4 class="modal-title">Your Account Details</h4>
+            </div>
+            <div class="modal-body">
+                <form #updateUserForm="ngForm" (ngSubmit)="updateUser(updateUserForm.value)" autocomplete="off" novalidate>
+                    <div class="form-group">
+                        <label for="name">Name</label>
+                        <em>Current Name: {{getName()}}</em>
+                        <input (ngModel)=name class="form-control" name="name" id="name" type="text" required minlength=3 maxlength=20 placeholder="Update Your Name"/>
+                        <em *ngIf="updateUserForm.controls.name?.invalid && updateUserForm.controls.name?.touched && updateUserForm.controls.name?.errors.required">Required</em>
+                        <em *ngIf="updateUserForm.controls.name?.invalid && updateUserForm.controls.name?.touched && updateUserForm.controls.name?.errors.minlength"> Must be between 3 and 20 characters</em>
+                    </div>
+                    
+                    <button type="submit" class="btn btn-primary" [disabled]="updateUserForm.invalid">Update</button>
+                    <button type="reset" class="btn btn-default" [disabled]="!updateUserForm.dirty">Reset</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

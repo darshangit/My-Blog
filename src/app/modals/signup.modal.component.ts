@@ -4,7 +4,7 @@ import { FormGroup } from '@angular/forms'
 import { UserLoginService } from '../services/user-login.services'
 import { UserDetails } from 'app/data-models/user-details.model'
 import { UserResponse } from 'app/data-models/signup-response.model'
-
+import { TOASTR_TOKEN, Toastr } from '../common/toastr.services'
 
 @Component({
     selector: 'app-signup-modal',
@@ -20,10 +20,8 @@ export class SignupComponent {
     @Input() elementId: string
     @Input() password: string
     @ViewChild('modalcontainer') containerEL: ElementRef
-    constructor( @Inject(JQ_TOKEN) private $: any, private userLoginService: UserLoginService) { }
-    // cancel() {
-    //     this.$(this.containerEL.nativeElement).modal('hide')
-    // }
+    constructor( @Inject(JQ_TOKEN) private $: any, private userLoginService: UserLoginService,
+    @Inject(TOASTR_TOKEN) private toastr: Toastr) { }
 
     signUp(formValues) {
         const user: UserDetails = {
@@ -38,7 +36,8 @@ export class SignupComponent {
 
             if (resp.status === 'Account Created Successfully') {
                 this.disableSubmit = true
-                 setTimeout(() => { this.$(this.containerEL.nativeElement).modal('hide') }, 3000)
+                this.toastr.success(this.responseStatus);
+                 setTimeout(() => { this.$(this.containerEL.nativeElement).modal('hide') }, 1000)
             }
         });
     }
