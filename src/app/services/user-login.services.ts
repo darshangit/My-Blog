@@ -51,7 +51,7 @@ export class UserLoginService {
 
     getCurrentUserName(): string {
         if (this.currentuser !== undefined) {
-            return this.currentuser.name
+            return this.currentuser.name.toUpperCase()
         }
     }
 

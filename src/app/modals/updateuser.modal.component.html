@@ -14,7 +14,6 @@
                         <em *ngIf="updateUserForm.controls.name?.invalid && updateUserForm.controls.name?.touched && updateUserForm.controls.name?.errors.required">Required</em>
                         <em *ngIf="updateUserForm.controls.name?.invalid && updateUserForm.controls.name?.touched && updateUserForm.controls.name?.errors.minlength"> Must be between 3 and 20 characters</em>
                     </div>
-                    
                     <button type="submit" class="btn btn-primary" [disabled]="updateUserForm.invalid">Update</button>
                     <button type="reset" class="btn btn-default" [disabled]="!updateUserForm.dirty">Reset</button>
                 </form>
