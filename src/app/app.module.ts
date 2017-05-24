@@ -8,7 +8,7 @@ import { appRoutes } from './routes';
 
 import { DashboardComponent } from './dashboard/dashboard.component'
 import { NavbarComponent } from './navbar/navbar.component'
-import { InitialLearningComponent } from './initial-learnings/initial-learning.component'
+import { InitialLearningComponent } from './initial-learnings/initial-learning-thumbnail.component'
 import { FooterComponent } from './footer/footer.component'
 import { SignupComponent } from './modals/signup.modal.component'
 import { JQ_TOKEN } from './common/jQuery.services'
@@ -18,6 +18,8 @@ import { PasswordValidatorDirective } from 'app/modals/passwordValidator.directi
 import { LoginComponent } from 'app/modals/login.modal.component'
 import { UserLoginService } from 'app/services/user-login.services'
 import { UserUpdateComponent } from 'app/modals/updateuser.modal.component'
+import { TopicService } from 'app/services/topics.service'
+import { TopicsResolver } from 'app/resolvers/topics.resolver'
 
 declare const jQuery: Object
 declare const toastr: Toastr;
@@ -44,6 +46,8 @@ declare const toastr: Toastr;
   ],
   providers: [
     UserLoginService,
+    TopicService,
+    TopicsResolver,
     {
       provide: TOASTR_TOKEN,
       useValue: toastr,

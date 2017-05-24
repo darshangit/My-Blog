@@ -1,7 +1,7 @@
 import { Component } from '@angular/core'
 
 @Component({
-    selector: 'app-initial-learnings',
+    selector: 'app-topics-thumbnail',
     templateUrl: './initial-learning.component.html',
     styles:[`
     `]

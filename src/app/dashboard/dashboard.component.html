@@ -3,5 +3,10 @@
         LEARN
     </h3>
     <hr>
-    <app-initial-learnings></app-initial-learnings>
+<div class "row">
+    <div *ngFor="let topicsIter of topicsArray">
+        <app-topics-thumbnail [topic]="topicsIter"></app-topics-thumbnail>
+    </div>
+</div>
+
 </div>
