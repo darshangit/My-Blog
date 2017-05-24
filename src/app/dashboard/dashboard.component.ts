@@ -6,12 +6,12 @@ import { ActivatedRoute } from '@angular/router'
     templateUrl: './dashboard.component.html'
 })
 export class DashboardComponent implements OnInit{
-    topicsArray: MainTopicsModel
+    topicsArray: MainTopicsModel[]
 
     constructor(private activatedRoute: ActivatedRoute) {}
 
     ngOnInit() {
-        this.topicsArray = this.activatedRoute.snapshot['topics']
-
+        this.topicsArray = this.activatedRoute.snapshot.data['topics']
+        console.log(this.topicsArray)
     }
 }

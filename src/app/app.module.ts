@@ -8,7 +8,7 @@ import { appRoutes } from './routes';
 
 import { DashboardComponent } from './dashboard/dashboard.component'
 import { NavbarComponent } from './navbar/navbar.component'
-import { InitialLearningComponent } from './initial-learnings/initial-learning-thumbnail.component'
+import { MainTopicComponent } from './topics/main-topics-thumbnail.component'
 import { FooterComponent } from './footer/footer.component'
 import { SignupComponent } from './modals/signup.modal.component'
 import { JQ_TOKEN } from './common/jQuery.services'
@@ -37,7 +37,7 @@ declare const toastr: Toastr;
     DashboardComponent,
     NavbarComponent,
     FooterComponent,
-    InitialLearningComponent,
+    MainTopicComponent,
     SignupComponent,
     LoginComponent,
     UserUpdateComponent,
