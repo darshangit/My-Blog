@@ -12,10 +12,11 @@ export class TopicService {
 
     getMainTopics(): Observable<MainTopicsModel[]> {
 
-        return this.http.get('/api/mainTopics').map((response: Response) => {
+        return this.http.get('/topics/mainTopics').map((response: Response) => {
             return response.json() as MainTopicsModel[];
         }).catch(this.handleError);
     }
+
 
     private handleError(error: Response) {
         return Observable.throw(error.statusText)
