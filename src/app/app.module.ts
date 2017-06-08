@@ -20,6 +20,7 @@ import { UserLoginService } from 'app/services/user-login.services'
 import { UserUpdateComponent } from 'app/modals/updateuser.modal.component'
 import { TopicService } from 'app/services/topics.service'
 import { TopicsResolver } from 'app/resolvers/topics.resolver'
+import { SubTopicComponent } from 'app/topics/sub-topic.component'
 
 declare const jQuery: Object
 declare const toastr: Toastr;
@@ -41,6 +42,7 @@ declare const toastr: Toastr;
     SignupComponent,
     LoginComponent,
     UserUpdateComponent,
+    SubTopicComponent,
     ModaltriggerDirective,
     PasswordValidatorDirective
   ],

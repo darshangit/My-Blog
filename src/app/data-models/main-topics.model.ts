@@ -1,6 +1,7 @@
-export interface MainTopicsModel{
-    uuid: number,
-    name: string,
-    imgSrc: string,
+export interface MainTopicsModel {
+    uuid: number
+    name: string
+    imgSrc: string
     status: string
+    subTopicId: number
 }
