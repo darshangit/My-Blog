@@ -8,7 +8,7 @@ export class TopicsResolver implements Resolve<any>{
 
     topics: MainTopicsModel[]
 
-    constructor(private topicsServices: TopicService){}
+    constructor(private topicsServices: TopicService) {}
     resolve(route?: ActivatedRouteSnapshot, state?: RouterStateSnapshot) {
         return this.topicsServices.getMainTopics();
     }

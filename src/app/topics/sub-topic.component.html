@@ -1,3 +1,19 @@
 <div class="container">
-    <p>I am awesome</p>
+    <h3>{{mainTopicName}}</h3>
+    <hr>
+    <div class="row container" *ngFor="let subTopics of subtopicResponse">
+        <div>
+            <app-collapsible-well>
+                <div well-title>
+                    {{subTopics.subTopicName}}
+                </div>
+
+                <div well-body>
+                    <div *ngFor="let subListings of subTopics.subListings">
+                        <a href="#">{{subListings.subListingName}}</a>
+                    </div>
+                </div>
+            </app-collapsible-well>
+        </div>
+    </div>
 </div>
