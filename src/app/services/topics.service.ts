@@ -2,9 +2,11 @@ import { Injectable } from '@angular/core'
 import { Headers, Http, RequestOptions, Response } from '@angular/http'
 import { Observable } from 'rxjs/Observable'
 import { Subject } from 'rxjs/Subject'
-import 'rxjs/Rx';
 import { MainTopicsModel } from 'app/data-models/main-topics.model'
 import { SubTopicsResponseModel } from 'app/data-models/sub-topics-response.model'
+import { SubListingResponse } from 'app/data-models/sub-listing-response.model'
+import { SubListingRequest } from 'app/data-models/sub-listing-request.model'
+import 'rxjs/Rx';
 
 @Injectable()
 export class TopicService {
@@ -21,6 +23,16 @@ export class TopicService {
         return this.http.get('/topics/subTopics/' + subTopicId).map((response: Response) => {
             return response.json() as SubTopicsResponseModel[];
         }).catch(this.handleError);
+    }
+
+    getSubListings(subListingRequest: SubListingRequest): Observable<SubListingResponse[]> {
+        const headers = new Headers({'Content-Type': 'application/json'})
+        const requestop = new RequestOptions({headers})
+
+        return this.http.post('/topics/getListings', JSON.stringify(subListingRequest), requestop).map((response: Response) => {
+            return response.json() as SubListingResponse[];
+        }).catch(this.handleError);
+
     }
 
     private handleError(error: Response) {

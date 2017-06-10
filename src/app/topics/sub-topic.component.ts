@@ -16,6 +16,7 @@ export class SubTopicComponent implements OnInit {
     constructor(private topicService: TopicService, private route: ActivatedRoute) {
     }
 
+
     ngOnInit(): void {
         this.mainTopicName = this.route.snapshot.params['topicName']
         this.topicService.getSubTopics(this.route.snapshot.params['id']).subscribe((resp) => {
