@@ -22,6 +22,7 @@ import { TopicService } from 'app/services/topics.service'
 import { TopicsResolver } from 'app/resolvers/topics.resolver'
 import { SubTopicComponent } from 'app/topics/sub-topic.component'
 import { CollapsibleWellComponent } from 'app/common/collapsible-well.component'
+import { SubListingComponent } from 'app/topics/sub-listing.component'
 
 declare const jQuery: Object
 declare const toastr: Toastr;
@@ -45,6 +46,7 @@ declare const toastr: Toastr;
     LoginComponent,
     UserUpdateComponent,
     SubTopicComponent,
+    SubListingComponent,
     ModaltriggerDirective,
     PasswordValidatorDirective
   ],

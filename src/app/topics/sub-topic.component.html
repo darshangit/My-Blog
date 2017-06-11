@@ -10,7 +10,7 @@
 
                 <div well-body>
                     <div *ngFor="let subListings of subTopics.subListings">
-                        <a href="#">{{subListings.subListingName}}</a>
+                        <a (click)="getListing(subListings)">{{subListings.subListingName}}</a>
                     </div>
                 </div>
             </app-collapsible-well>
