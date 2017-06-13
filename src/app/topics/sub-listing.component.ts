@@ -1,17 +1,22 @@
-import { Component, OnInit } from '@angular/core'
+import { Component, OnInit, Input } from '@angular/core'
 import { ActivatedRoute } from '@angular/router'
 import { TopicService } from 'app/services/topics.service'
 import { SubListingRequest } from 'app/data-models/sub-listing-request.model'
 import { SubListingResponse } from 'app/data-models/sub-listing-response.model'
 
 @Component({
-    templateUrl: './sub-listing.component.html'
+    templateUrl: './sub-listing.component.html',
+    styleUrls: ['../css/topics.less']
 })
 export class SubListingComponent implements OnInit {
+
+    @Input()
+    image: string
 
     link: string
     listingName: string
     subListingResponse: SubListingResponse[]
+
     constructor(private topicService: TopicService, private activatedRoute: ActivatedRoute) {}
 
     ngOnInit(): void {

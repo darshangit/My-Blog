@@ -1,3 +1,43 @@
-<div>
-<p>Hi</p>
+<div class="container">
+    <h3>{{listingName}}</h3>
+    <hr>
+    <div class = "well" *ngFor = "let listing of subListingResponse">
+        <h4>{{listing.title}}</h4>
+
+        <div class="preDesc" *ngFor = "let predesc of listing.preDescription">
+            <p>
+                {{predesc}}
+            </p>
+        </div>
+
+        <div class="note" *ngFor = "let note of listing.note">
+            <p>
+                {{note}}
+            </p>
+        </div>
+
+        <div class="mainDesc" *ngFor = "let mainDesc of listing.mainDescription">
+            <p>
+                {{mainDesc}}
+            </p>
+        </div>
+
+        <div *ngIf="listing.image">
+            <img class="embed-responsive-item" src="../../assets/listings/{{listing.image}}" class="img-rounded">
+            <br/>
+            <br/>
+         </div>
+
+        <div *ngIf="listing.code" class="codeList">
+            <code  *ngFor = "let code of listing.code">
+                {{code}}<br/>
+            </code>
+        </div>
+
+        <div class="postDesc"*ngFor = "let postDesc of listing.postDescription">
+            <p>
+                {{postDesc}}
+            </p>
+        </div>
+    </div>
 </div>

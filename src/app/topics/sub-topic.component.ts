@@ -6,9 +6,7 @@ import { SubTopicModel } from 'app/data-models/sub-topics.model'
 
 @Component({
     templateUrl: './sub-topic.component.html',
-    styles: [`
-        h3{color:darkgray;}
-    `],
+    styleUrls: ['../css/topics.less']
 })
 export class SubTopicComponent implements OnInit {
 
