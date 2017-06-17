@@ -7,6 +7,7 @@ import { SubTopicsResponseModel } from 'app/data-models/sub-topics-response.mode
 import { SubListingResponse } from 'app/data-models/sub-listing-response.model'
 import { SubListingRequest } from 'app/data-models/sub-listing-request.model'
 import 'rxjs/Rx';
+import { SubListingAllResponse } from 'app/data-models/sub-listing-all-response.model'
 
 @Injectable()
 export class TopicService {
@@ -19,6 +20,12 @@ export class TopicService {
         }).catch(this.handleError);
     }
 
+    getAllSubListings(): Observable<SubListingAllResponse[]> {
+        return this.http.get('topics/sublistings').map((response: Response) => {
+            return response.json() as SubListingAllResponse[];
+        }).catch(this.handleError);
+    }
+    
     getSubTopics(subTopicId): Observable<SubTopicsResponseModel[]> {
         return this.http.get('/topics/subTopics/' + subTopicId).map((response: Response) => {
             return response.json() as SubTopicsResponseModel[];
@@ -26,13 +33,12 @@ export class TopicService {
     }
 
     getSubListings(subListingRequest: SubListingRequest): Observable<SubListingResponse[]> {
-        const headers = new Headers({'Content-Type': 'application/json'})
-        const requestop = new RequestOptions({headers})
+        const headers = new Headers({ 'Content-Type': 'application/json' })
+        const requestop = new RequestOptions({ headers })
 
         return this.http.post('/topics/getListings', JSON.stringify(subListingRequest), requestop).map((response: Response) => {
             return response.json() as SubListingResponse[];
         }).catch(this.handleError);
-
     }
 
     private handleError(error: Response) {

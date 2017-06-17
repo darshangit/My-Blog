@@ -8,7 +8,8 @@ import { ActivatedRoute } from '@angular/router'
 })
 export class DashboardComponent implements OnInit{
     topicsArray: MainTopicsModel[]
-
+    item: string;
+    items: [ 'asdasd', 'asdasdads', 'asssvva']
     constructor(private activatedRoute: ActivatedRoute) {}
 
     ngOnInit() {

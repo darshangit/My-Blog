@@ -23,9 +23,10 @@ import { TopicsResolver } from 'app/resolvers/topics.resolver'
 import { SubTopicComponent } from 'app/topics/sub-topic.component'
 import { CollapsibleWellComponent } from 'app/common/collapsible-well.component'
 import { SubListingComponent } from 'app/topics/sub-listing.component'
+import { SearchComponent } from 'app/modals/search.model.component'
 
 declare const jQuery: Object
-declare const toastr: Toastr;
+declare const toastr: Toastr
 
 @NgModule({
   imports: [
@@ -39,7 +40,6 @@ declare const toastr: Toastr;
     MyBlogComponent,
     DashboardComponent,
     CollapsibleWellComponent,
-    NavbarComponent,
     FooterComponent,
     MainTopicComponent,
     SignupComponent,
@@ -47,8 +47,10 @@ declare const toastr: Toastr;
     UserUpdateComponent,
     SubTopicComponent,
     SubListingComponent,
+    SearchComponent,
     ModaltriggerDirective,
-    PasswordValidatorDirective
+    PasswordValidatorDirective,
+    NavbarComponent
   ],
   providers: [
     UserLoginService,
@@ -61,7 +63,7 @@ declare const toastr: Toastr;
     {
       provide: JQ_TOKEN,
       useValue: jQuery
-    }
+    },
   ],
   bootstrap: [MyBlogComponent]
 })

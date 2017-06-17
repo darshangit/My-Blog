@@ -4,24 +4,28 @@
             <a class="navbar-brand" href="#">Angular-On-Wheels</a>
         </div>
         <ul class="nav navbar-nav">
-           <li><a href="#">Featured Blogs</a></li>
+            <li><a href="#">Featured Blogs</a></li>
         </ul>
 
         <ul class="nav navbar-nav navbar-right">
             <li>
-                 <a class="myAnchor glyphicon glyphicon-log-in"  appModalTrigger="signUp"> Sign-Up</a>
+                <a class="myAnchor glyphicon glyphicon-log-in" appModalTrigger="signUp"> Sign-Up</a>
             </li>
             <li>
-                <a *ngIf ="!userService.isAuthenticated()" class="myAnchor glyphicon glyphicon-log-in" appModalTrigger="login"> Login</a>
-                <a *ngIf ="userService.isAuthenticated()" class="myAnchor glyphicon glyphicon-log-in" appModalTrigger="updateUser"> Welcome {{userService.getCurrentUserName()}}</a>
+                <a *ngIf="!userService.isAuthenticated()" class="myAnchor glyphicon glyphicon-log-in" appModalTrigger="login"> Login</a>
+                <a *ngIf="userService.isAuthenticated()" class="myAnchor glyphicon glyphicon-log-in" appModalTrigger="updateUser"> Welcome {{userService.getCurrentUserName()}}</a>
             </li>
         </ul>
 
         <form class="navbar-form navbar-right">
             <div class="form-group">
-                <input class="form-control" name="search" type="text" placeholder="Search" />
+                <form id="searchForm" (ngSubmit)="searchSubListings(searchTerm)" class="navbar-form navbar-right">
+                    <div class="form-group">
+                        <input [(ngModel)]="searchTerm" name="searchTerm" type="text" class="form-control" placeholder="Search Topics">
+                    </div>
+                    <button class="btn btn-xs" appModalTrigger="searchResults"><span class="glyphicon glyphicon-search"></span></button>
+                </form>
             </div>
-            <button class="btn btn-xs"><span class="glyphicon glyphicon-search"></span></button>
         </form>
     </div>
 </nav>
@@ -34,3 +38,10 @@
 
 <app-updateuser-modal elementId="updateUser">
 </app-updateuser-modal>
+
+<app-search-modal elementId="searchResults">
+    <div class="list-group">
+        <a class="list-group-item" *ngFor="let sublisting of sublistingArray" 
+        [routerLink]="['/subListings', sublisting.subListingName, sublisting.listingLinks]">{{sublisting.subListingName}}</a>
+    </div>
+</app-search-modal>
