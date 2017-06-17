@@ -24,6 +24,7 @@ import { SubTopicComponent } from 'app/topics/sub-topic.component'
 import { CollapsibleWellComponent } from 'app/common/collapsible-well.component'
 import { SubListingComponent } from 'app/topics/sub-listing.component'
 import { SearchComponent } from 'app/modals/search.model.component'
+import { SearchPipe } from 'app/pipe/searchFilter.component'
 
 declare const jQuery: Object
 declare const toastr: Toastr
@@ -50,7 +51,8 @@ declare const toastr: Toastr
     SearchComponent,
     ModaltriggerDirective,
     PasswordValidatorDirective,
-    NavbarComponent
+    NavbarComponent,
+    SearchPipe
   ],
   providers: [
     UserLoginService,

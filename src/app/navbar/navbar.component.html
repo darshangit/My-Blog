@@ -18,14 +18,10 @@
         </ul>
 
         <form class="navbar-form navbar-right">
-            <div class="form-group">
-                <form id="searchForm" (ngSubmit)="searchSubListings(searchTerm)" class="navbar-form navbar-right">
-                    <div class="form-group">
+                <form id="searchForm" (ngSubmit)="searchSubListings(searchTerm)">
                         <input [(ngModel)]="searchTerm" name="searchTerm" type="text" class="form-control" placeholder="Search Topics">
-                    </div>
                     <button class="btn btn-xs" appModalTrigger="searchResults"><span class="glyphicon glyphicon-search"></span></button>
                 </form>
-            </div>
         </form>
     </div>
 </nav>
@@ -41,7 +37,7 @@
 
 <app-search-modal elementId="searchResults">
     <div class="list-group">
-        <a class="list-group-item" *ngFor="let sublisting of sublistingArray" 
+        <a class="list-group-item" *ngFor="let sublisting of sublistingArray | searchPipe:searchTerm" 
         [routerLink]="['/subListings', sublisting.subListingName, sublisting.listingLinks]">{{sublisting.subListingName}}</a>
     </div>
 </app-search-modal>

@@ -17,7 +17,6 @@ export class NavbarComponent implements OnInit {
     ngOnInit() {
         this.topicService.getAllSubListings().subscribe((resp) => {
             this.sublistingArray = resp
-            console.log('initializingas', this.sublistingArray)
         })
     }
 
