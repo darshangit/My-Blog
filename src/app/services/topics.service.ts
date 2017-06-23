@@ -25,7 +25,7 @@ export class TopicService {
             return response.json() as SubListingAllResponse[];
         }).catch(this.handleError);
     }
-    
+
     getSubTopics(subTopicId): Observable<SubTopicsResponseModel[]> {
         return this.http.get('/topics/subTopics/' + subTopicId).map((response: Response) => {
             return response.json() as SubTopicsResponseModel[];
