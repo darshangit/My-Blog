@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core'
 import { MainTopicsModel } from 'app/data-models/main-topics.model'
 import { ActivatedRoute } from '@angular/router'
+import { CarousalResponse } from 'app/data-models/carousal-response.model'
 @Component({
     selector: 'app-dashboard',
     templateUrl: './dashboard.component.html',
@@ -8,12 +9,12 @@ import { ActivatedRoute } from '@angular/router'
 })
 export class DashboardComponent implements OnInit{
     topicsArray: MainTopicsModel[]
-    item: string;
-    items: [ 'asdasd', 'asdasdads', 'asssvva']
+    carousalList: CarousalResponse[]
+
     constructor(private activatedRoute: ActivatedRoute) {}
 
     ngOnInit() {
         this.topicsArray = this.activatedRoute.snapshot.data['topics']
-        console.log(this.topicsArray)
+        this.carousalList = this.activatedRoute.snapshot.data['carousal']
     }
 }

@@ -25,6 +25,7 @@ import { CollapsibleWellComponent } from 'app/common/collapsible-well.component'
 import { SubListingComponent } from 'app/topics/sub-listing.component'
 import { SearchComponent } from 'app/modals/search.model.component'
 import { SearchPipe } from 'app/pipe/searchFilter.component'
+import { CarousalResolver } from 'app/resolvers/carousal.resolver'
 
 declare const jQuery: Object
 declare const toastr: Toastr
@@ -58,6 +59,7 @@ declare const toastr: Toastr
     UserLoginService,
     TopicService,
     TopicsResolver,
+    CarousalResolver,
     {
       provide: TOASTR_TOKEN,
       useValue: toastr,
