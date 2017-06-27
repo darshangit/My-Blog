@@ -1,5 +1,7 @@
 import { Component, Input, Inject, ViewChild, ElementRef } from '@angular/core'
 import { JQ_TOKEN } from './jQuery.services'
+
+
 @Component({
     selector: 'app-collapsible-well',
     template: `

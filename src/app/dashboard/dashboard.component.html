@@ -1,5 +1,21 @@
 <div class="container">
 
+    <div class="row">
+        <div class="col-md-10 col-md-offset-2 col-lg-10 col-lg-offset-2" class="carousel slide" id="theCarousal" data-interval="2000">
+            <div class="carousel-inner">
+                    <div *ngFor="let corousalIter of carousalList">
+
+                    <div class="item active" *ngIf="corousalIter.orderNumber === 1" >
+                        <img src="../../assets/carousal/{{corousalIter.carousalImage}}" alt="{{corousalIter.orderNumber}}" class="img-responsive"/>
+                    </div>
+                    <div class="item" *ngIf="corousalIter.orderNumber !== 1" >
+                        <img src="../../assets/carousal/{{corousalIter.carousalImage}}" alt="{{corousalIter.orderNumber}}" class="img-responsive"/>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <h3 class="container large text-left">
         LEARN
     </h3>

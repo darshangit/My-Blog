@@ -37,7 +37,7 @@ declare const toastr: Toastr
     HttpModule,
     ReactiveFormsModule,
     RouterModule.forRoot(appRoutes)
-  ],
+],
   declarations: [
     MyBlogComponent,
     DashboardComponent,
@@ -69,6 +69,6 @@ declare const toastr: Toastr
       useValue: jQuery
     },
   ],
-  bootstrap: [MyBlogComponent]
+   bootstrap: [MyBlogComponent]
 })
 export class AppModule { }
