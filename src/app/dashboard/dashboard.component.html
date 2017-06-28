@@ -1,23 +1,59 @@
 <div class="container">
 
-    <div class="row">
-        <div class="col-md-10 col-md-offset-2 col-lg-10 col-lg-offset-2" class="carousel slide" id="theCarousal" data-interval="2000">
-            <div class="carousel-inner">
-                    <div *ngFor="let corousalIter of carousalList">
+    <div class="row visible-md visible-lg">
+        <div class="carousel slide" id="theCarousal" data-interval="3000">
 
-                    <div class="item active" *ngIf="corousalIter.orderNumber === 1" >
-                        <img src="../../assets/carousal/{{corousalIter.carousalImage}}" alt="{{corousalIter.orderNumber}}" class="img-responsive"/>
+            <ol class="carousel-indicators">
+                <li data-target="#theCarousal" data-slide-to="0" class="active"></li>
+                <li data-target="#theCarousal" data-slide-to="1"></li>
+                <li *ngIf="carousalList.length > 2" data-target="#theCarousal" data-slide-to="2"></li>
+                <li *ngIf="carousalList.length > 3" data-target="#theCarousal" data-slide-to="3"></li>
+                <li *ngIf="carousalList.length > 4" data-target="#theCarousal" data-slide-to="4"></li>
+            </ol>
+
+            <div class="carousel-inner">
+                <div class="item active">
+                    <img (click) = "openListing(carousalList[0])" src="../../assets/carousal/{{carousalList[0]?.carousalImage}}" alt="1" class="img-responsive" />
+                    <div class="carousel-caption">
+                        <h4>{{carousalList[0]?.carousalName}}</h4>
+                        <p>{{carousalList[0]?.carousalDescription}}</p>
                     </div>
-                    <div class="item" *ngIf="corousalIter.orderNumber !== 1" >
-                        <img src="../../assets/carousal/{{corousalIter.carousalImage}}" alt="{{corousalIter.orderNumber}}" class="img-responsive"/>
+                </div>
+                <div class="item">
+                    <img (click) = "openListing(carousalList[1])" src="../../assets/carousal/{{carousalList[1]?.carousalImage}}" alt="2" class="img-responsive" />
+                    <div class="carousel-caption">
+                        <h4>{{carousalList[1]?.carousalName}}</h4>
+                        <p>{{carousalList[1]?.carousalDescription}}</p>
+                    </div>
+                </div>
+                <div *ngIf="carousalList.length > 2" class="item">
+                    <img (click) = "openListing(carousalList[2])" src="../../assets/carousal/{{carousalList[2]?.carousalImage}}" alt="2" class="img-responsive" />
+                    <div class="carousel-caption">
+                        <h4>{{carousalList[2]?.carousalName}}</h4>
+                        <p>{{carousalList[2]?.carousalDescription}}</p>
+                    </div>
+                </div>
+                <div *ngIf="carousalList.length > 3" class="item">
+                    <img (click) = "openListing(carousalList[3])" src="../../assets/carousal/{{carousalList[3]?.carousalImage}}" alt="2" class="img-responsive" />
+                    <div class="carousel-caption">
+                        <h4>{{carousalList[3]?.carousalName}}</h4>
+                        <p>{{carousalList[3]?.carousalDescription}}</p>
+                    </div>
+                </div>
+                <div *ngIf="carousalList.length > 4" class="item">
+                    <img (click) = "openListing(carousalList[4])" src="../../assets/carousal/{{carousalList[4]?.carousalImage}}" alt="2" class="img-responsive" />
+                    <div class="carousel-caption">
+                        <h4>{{carousalList[4]?.carousalName}}</h4>
+                        <p>{{carousalList[4]?.carousalDescription}}</p>
                     </div>
                 </div>
             </div>
+
+            <a href="#theCarousal" class="carousel-control left" data-slide="prev"><span class="icon-prev"></span></a>
+            <a href="#theCarousal" class="carousel-control right" data-slide="next"><span class="icon-next"></span></a>
         </div>
     </div>
-
     <h3 class="container large text-left">
-        LEARN
     </h3>
     <hr>
     <div class="row">
