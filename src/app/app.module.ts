@@ -12,7 +12,6 @@ import { MainTopicComponent } from './topics/main-topics-thumbnail.component'
 import { FooterComponent } from './footer/footer.component'
 import { SignupComponent } from './modals/signup.modal.component'
 import { JQ_TOKEN } from './common/jQuery.services'
-import { TOASTR_TOKEN, Toastr } from './common/toastr.services'
 import { ModaltriggerDirective } from './modals/modal.trigger.directive'
 import { PasswordValidatorDirective } from 'app/modals/passwordValidator.directive'
 import { LoginComponent } from 'app/modals/login.modal.component'
@@ -28,7 +27,6 @@ import { SearchPipe } from 'app/pipe/searchFilter.component'
 import { CarousalResolver } from 'app/resolvers/carousal.resolver'
 
 declare const jQuery: Object
-declare const toastr: Toastr
 
 @NgModule({
   imports: [
@@ -60,10 +58,6 @@ declare const toastr: Toastr
     TopicService,
     TopicsResolver,
     CarousalResolver,
-    {
-      provide: TOASTR_TOKEN,
-      useValue: toastr,
-    },
     {
       provide: JQ_TOKEN,
       useValue: jQuery

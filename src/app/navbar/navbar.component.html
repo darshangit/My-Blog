@@ -1,19 +1,24 @@
 <nav class="navbar navbar-xs navbar-inverse">
     <div class="container-fluid">
         <div class="navbar-header">
-            <a class="navbar-brand" href="#">Angular-On-Wheels</a>
+            <a class="navbar-brand" [routerLink]="['/app-dashboard']">Angular-On-Wheels</a>
         </div>
         <ul class="nav navbar-nav">
             <li><a href="#">Featured Blogs</a></li>
+            
+        </ul>
+
+        <ul class="nav navbar-nav curPointer">
+            <li><a appModalTrigger="aboutMe">About Me</a></li>
         </ul>
 
         <ul class="nav navbar-nav navbar-right">
             <li>
-                <a class="myAnchor glyphicon glyphicon-log-in" appModalTrigger="signUp"> Sign-Up</a>
+                <a *ngIf="!userService.isAuthenticated()" class="myAnchor glyphicon glyphicon-log-in" appModalTrigger="signUp"> Sign-Up</a>
             </li>
             <li>
                 <a *ngIf="!userService.isAuthenticated()" class="myAnchor glyphicon glyphicon-log-in" appModalTrigger="login"> Login</a>
-                <a *ngIf="userService.isAuthenticated()" class="myAnchor glyphicon glyphicon-log-in" appModalTrigger="updateUser"> Welcome {{userService.getCurrentUserName()}}</a>
+                <a *ngIf="userService.isAuthenticated()" class="myAnchor glyphicon glyphicon-log-in" appModalTrigger="updateUser"> Welcome,{{userService.getCurrentUserName()}}</a>
             </li>
         </ul>
 
@@ -35,9 +40,36 @@
 <app-updateuser-modal elementId="updateUser">
 </app-updateuser-modal>
 
-<app-search-modal elementId="searchResults">
+<app-search-modal elementId="searchResults" title="Results">
     <div class="list-group">
         <a class="list-group-item" *ngFor="let sublisting of sublistingArray | searchPipe:searchTerm" 
         [routerLink]="['/subListings', sublisting.subListingName, sublisting.listingLinks]">{{sublisting.subListingName}}</a>
     </div>
+</app-search-modal>
+
+<app-search-modal elementId="aboutMe" title="About Me">
+   <p>Hello,<br/><br/>
+       <b>Darshan Satya</b> welcomes you. This project started out as a challenge upon myself but before I could realize it 
+         I was hypnotized into the beauty of Angular 2+ with bootstrap and all the technologies that come with it. 
+       <br/>
+       <br/>
+       This website is built with utmost care with the intention of providing information to the developer community out there.
+       <br/>
+       <br/>
+       Well yes , there are many sites which offer the same. Well this is not that different. I have tried to keep a materialistic
+       design and to make the site clutter free.
+       <br/>
+       <br/>
+       Well , hope you enjoy the time you spend here.
+       <br/>
+       <br/>
+       To know more about me or my work: 
+       <br/>
+       <a href="https://github.com/darshangit" target="_blank" class = "pull-left">Github</a>
+       <br/>
+       <a href="https://www.linkedin.com/in/darshan-satya-b5b775ba" target="_blank" class = "pull-left">Linkedin</a>
+       <br/>
+       <br/>
+       <b>Happy Learning</b>
+  </p>
 </app-search-modal>

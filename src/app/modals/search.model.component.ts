@@ -12,6 +12,7 @@ import { ActivatedRoute, Router } from '@angular/router'
 })
 export class SearchComponent {
     @Input() elementId: string
+    @Input() title: string
     @ViewChild('modalcontainer') containerEl: ElementRef
     constructor( @Inject(JQ_TOKEN) private $: any) {}
 

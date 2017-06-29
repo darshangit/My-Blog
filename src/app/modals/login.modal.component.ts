@@ -2,7 +2,6 @@ import {Component, Input, ViewChild, ElementRef, Inject} from '@angular/core'
 import { JQ_TOKEN } from '../common/jQuery.services'
 import { UserDetails } from 'app/data-models/user-details.model'
 import { UserLoginService } from 'app/services/user-login.services'
-import { TOASTR_TOKEN, Toastr } from '../common/toastr.services'
 
 @Component({
     selector: 'app-login-modal',
@@ -14,12 +13,12 @@ import { TOASTR_TOKEN, Toastr } from '../common/toastr.services'
 export class LoginComponent {
     responseRecieved = false
     disableSubmit = false
+    loginSuccess = false
     responseStatus: string
     @Input() elementId: string
     @ViewChild('logincontainer') containerEL: ElementRef
 
-    constructor(@Inject(JQ_TOKEN) private $: any,private userService: UserLoginService,
-    @Inject(TOASTR_TOKEN) private toastr: Toastr){}
+    constructor(@Inject(JQ_TOKEN) private $: any,private userService: UserLoginService){}
 
     login(formvalues) {
 
@@ -42,8 +41,8 @@ export class LoginComponent {
                 this.userService.setCurrentUser(user)
                 this.disableSubmit = true
                 this.userService.setAutheticatedFlag()
-                this.toastr.success(this.responseStatus);
-                setTimeout(() => { this.$(this.containerEL.nativeElement).modal('hide') }, 1000)
+                this.loginSuccess = true
+                setTimeout(() => { this.$(this.containerEL.nativeElement).modal('hide') }, 2000)
 
             }
         })

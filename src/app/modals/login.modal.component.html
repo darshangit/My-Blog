@@ -16,6 +16,9 @@
                         <label for="password">Password</label>
                         <em *ngIf="loginForm.controls.password?.invalid && loginForm.controls.password?.touched"> Invalid Password</em>
                         <input (ngModel)="password" name="password" id="password" type="password" class="form-control" required minlength="7" maxlength="15"/>
+                    </div>
+                    <div *ngIf="loginSuccess" class="alert alert-success" role="alert">
+                        <strong>Yup!</strong>Logged-in Sucessfully
                     </div>                
                     <em *ngIf="responseRecieved">{{responseStatus}}</em>
                     <button type="submit" class="btn btn-primary" [disabled]="disableSubmit || loginForm.invalid">Login</button>

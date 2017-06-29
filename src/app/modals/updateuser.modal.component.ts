@@ -3,7 +3,6 @@ import { FormControl, FormGroup, Validators, ReactiveFormsModule } from '@angula
 import { UserLoginService } from 'app/services/user-login.services'
 import { JQ_TOKEN } from '../common/jQuery.services'
 import { UserDetails } from 'app/data-models/user-details.model'
-import { TOASTR_TOKEN, Toastr } from '../common/toastr.services'
 
 @Component({
     selector: 'app-updateuser-modal',
@@ -15,12 +14,12 @@ import { TOASTR_TOKEN, Toastr } from '../common/toastr.services'
 export class UserUpdateComponent{
     responseRecieved = false
     disableSubmit = false
+    updateSuccess = false
     responseStatus: string
     @Input() elementId: string
     @ViewChild('updatecontainer') containerEL: ElementRef
     constructor( @Inject(JQ_TOKEN) private $: any,
-    private userLoginService: UserLoginService,
-    @Inject(TOASTR_TOKEN) private toastr: Toastr) {}
+    private userLoginService: UserLoginService) {}
 
     getName() {
             return this.userLoginService.getCurrentUserName()
@@ -39,9 +38,10 @@ export class UserUpdateComponent{
             if ( resp.status === 'Name Updated Successfully' ) {
                 this.disableSubmit = true
                 this.userLoginService.setCurrentUser(user)
-                this.toastr.info(this.responseStatus);
-                this.$(this.containerEL.nativeElement).modal('hide')
-                // setTimeout(() => { this.$(this.containerEL.nativeElement).modal('hide') }, )
+                this.updateSuccess = true
+                // this.toastr.info(this.responseStatus);
+                // this.$(this.containerEL.nativeElement).modal('hide')
+                setTimeout(() => { this.$(this.containerEL.nativeElement).modal('hide') }, 2000)
             }
         } )
     }

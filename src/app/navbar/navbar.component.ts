@@ -5,7 +5,8 @@ import { TopicService } from 'app/services/topics.service'
 
 @Component({
     selector: 'app-navbar',
-    templateUrl: './navbar.component.html'
+    templateUrl: './navbar.component.html',
+    styleUrls: ['../css/topics.less']
 })
 export class NavbarComponent implements OnInit {
 
