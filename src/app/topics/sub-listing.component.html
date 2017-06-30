@@ -2,7 +2,7 @@
     <h3>{{listingName}}</h3>
     <hr>
     <div class = "well" *ngFor = "let listing of subListingResponse">
-        <h4>{{listing.title}}</h4>
+        <h4 class="text-primary">{{listing.title}}</h4>
 
         <div class="preDesc" *ngFor = "let predesc of listing.preDescription">
             <p>

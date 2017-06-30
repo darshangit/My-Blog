@@ -1,33 +1,32 @@
-<nav class="navbar navbar-xs navbar-inverse">
+<nav class="navbar navbar-xs navbar-inverse navbar-fixed-top">
     <div class="container-fluid">
         <div class="navbar-header">
             <a class="navbar-brand" [routerLink]="['/app-dashboard']">Angular-On-Wheels</a>
+            <button class="btn btn-success navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse"><span class="glyphicon glyphicon-chevron-down"></span></button>
         </div>
-        <ul class="nav navbar-nav">
-            <li><a href="#">Featured Blogs</a></li>
-            
-        </ul>
-
-        <ul class="nav navbar-nav curPointer">
-            <li><a appModalTrigger="aboutMe">About Me</a></li>
-        </ul>
-
-        <ul class="nav navbar-nav navbar-right">
-            <li>
-                <a *ngIf="!userService.isAuthenticated()" class="myAnchor glyphicon glyphicon-log-in" appModalTrigger="signUp"> Sign-Up</a>
-            </li>
-            <li>
-                <a *ngIf="!userService.isAuthenticated()" class="myAnchor glyphicon glyphicon-log-in" appModalTrigger="login"> Login</a>
-                <a *ngIf="userService.isAuthenticated()" class="myAnchor glyphicon glyphicon-log-in" appModalTrigger="updateUser"> Welcome,{{userService.getCurrentUserName()}}</a>
-            </li>
-        </ul>
-
-        <form class="navbar-form navbar-right">
-                <form id="searchForm" (ngSubmit)="searchSubListings(searchTerm)">
-                        <input [(ngModel)]="searchTerm" name="searchTerm" type="text" class="form-control" placeholder="Search Topics">
-                    <button class="btn btn-xs" appModalTrigger="searchResults"><span class="glyphicon glyphicon-search"></span></button>
-                </form>
-        </form>
+        <div class="navbar-collapse collapse">
+            <ul class="nav navbar-nav navbar-left hidden-xs curPointer">
+                <li class="nav"><a href="#">Featured Blogs</a></li>
+                <li class="nav"><a appModalTrigger="aboutMe">About Me</a></li>
+            </ul>
+            <ul class="nav navbar-nav navbar-right">
+                <li class="nav">
+                    <form class="navbar-form hidden-xs">
+                        <form id="searchForm" (ngSubmit)="searchSubListings(searchTerm)">
+                            <input [(ngModel)]="searchTerm" name="searchTerm" type="text" class="form-control" placeholder="Search Topics">
+                            <button class="btn btn-xs" appModalTrigger="searchResults"><span class="glyphicon glyphicon-search"></span></button>
+                        </form>
+                    </form>
+                </li>
+                <li class="nav">
+                    <a *ngIf="!userService.isAuthenticated()" class="myAnchor glyphicon glyphicon-log-in" appModalTrigger="signUp"> Sign-Up</a>
+                </li>
+                <li class="nav">
+                    <a *ngIf="!userService.isAuthenticated()" class="myAnchor glyphicon glyphicon-log-in" appModalTrigger="login"> Login</a>
+                    <a *ngIf="userService.isAuthenticated()" class="myAnchor glyphicon glyphicon-log-in" appModalTrigger="updateUser"> Welcome,{{userService.getCurrentUserName()}}</a>
+                </li>
+             </ul>
+        </div>
     </div>
 </nav>
 
@@ -42,34 +41,31 @@
 
 <app-search-modal elementId="searchResults" title="Results">
     <div class="list-group">
-        <a class="list-group-item" *ngFor="let sublisting of sublistingArray | searchPipe:searchTerm" 
-        [routerLink]="['/subListings', sublisting.subListingName, sublisting.listingLinks]">{{sublisting.subListingName}}</a>
+        <a class="list-group-item" *ngFor="let sublisting of sublistingArray | searchPipe:searchTerm" [routerLink]="['/subListings', sublisting.subListingName, sublisting.listingLinks]">{{sublisting.subListingName}}</a>
     </div>
 </app-search-modal>
 
 <app-search-modal elementId="aboutMe" title="About Me">
-   <p>Hello,<br/><br/>
-       <b>Darshan Satya</b> welcomes you. This project started out as a challenge upon myself but before I could realize it 
-         I was hypnotized into the beauty of Angular 2+ with bootstrap and all the technologies that come with it. 
-       <br/>
-       <br/>
-       This website is built with utmost care with the intention of providing information to the developer community out there.
-       <br/>
-       <br/>
-       Well yes , there are many sites which offer the same. Well this is not that different. I have tried to keep a materialistic
-       design and to make the site clutter free.
-       <br/>
-       <br/>
-       Well , hope you enjoy the time you spend here.
-       <br/>
-       <br/>
-       To know more about me or my work: 
-       <br/>
-       <a href="https://github.com/darshangit" target="_blank" class = "pull-left">Github</a>
-       <br/>
-       <a href="https://www.linkedin.com/in/darshan-satya-b5b775ba" target="_blank" class = "pull-left">Linkedin</a>
-       <br/>
-       <br/>
-       <b>Happy Learning</b>
-  </p>
+    <p>Hello,<br/><br/>
+        <strong>Darshan Satya</strong> welcomes you. This project started out as a challenge upon myself but before I could
+        realize it I was hypnotized into the beauty of Angular 2+ with bootstrap and all the technologies that come with
+        it.
+        <br/>
+        <br/> This website is built with utmost care with the intention of providing information to the developer community
+        out there.
+        <br/>
+        <br/> Well yes , there are many sites which offer the same. Well this is not that different. I have tried to keep
+        a materialistic design and to make the site clutter free.
+        <br/>
+        <br/> Well , hope you enjoy the time you spend here.
+        <br/>
+        <br/> To know more about me or my work:
+        <br/>
+        <a href="https://github.com/darshangit" target="_blank" class="pull-left">Github</a>
+        <br/>
+        <a href="https://www.linkedin.com/in/darshan-satya-b5b775ba" target="_blank" class="pull-left">Linkedin</a>
+        <br/>
+        <br/>
+        <b>Happy Learning</b>
+    </p>
 </app-search-modal>
