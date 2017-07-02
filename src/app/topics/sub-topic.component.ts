@@ -12,16 +12,19 @@ export class SubTopicComponent implements OnInit {
 
     subtopicResponse: SubTopicsResponseModel[]
     mainTopicName: string
+    mainTopicId: string
     constructor(private topicService: TopicService, private route: ActivatedRoute, private router: Router) {
     }
 
     ngOnInit(): void {
         this.mainTopicName = this.route.snapshot.params['topicName']
+        this.mainTopicId = this.route.snapshot.params['id']
+
         this.topicService.getSubTopics(this.route.snapshot.params['id']).subscribe((resp) => {
             this.subtopicResponse = resp
         })
     }
     getListing(subListings: SubTopicModel) {
-        this.router.navigate(['/subListings', subListings.subListingName, subListings.listingLinks])
+        this.router.navigate(['/subListings', subListings.subListingName, subListings.listingLinks, this.mainTopicName, this.mainTopicId])
     }
 }

@@ -1,4 +1,10 @@
 <div class="container">
+    <ol class="breadcrumb">
+        <li><a [routerLink]="['/app-dashboard']">Home</a></li>
+        <li *ngIf="mainTopicName !== undefined"><a [routerLink]="['/subtopics',maintopicId,mainTopicName]">{{mainTopicName}}</a></li>
+        <li class="active">{{listingName}}</li>
+    </ol>
+
     <h3>{{listingName}}</h3>
     <hr>
     <div class = "well" *ngFor = "let listing of subListingResponse">

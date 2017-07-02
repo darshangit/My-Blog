@@ -12,6 +12,7 @@ import { JQ_TOKEN } from '../common/jQuery.services'
 export class DashboardComponent implements OnInit {
     topicsArray: MainTopicsModel[]
     carousalList: CarousalResponse[]
+
     constructor( @Inject(JQ_TOKEN) private $: any, private activatedRoute: ActivatedRoute, private route: Router) { }
 
     ngOnInit() {

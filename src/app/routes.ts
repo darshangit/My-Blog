@@ -9,5 +9,6 @@ export const appRoutes: Routes = [
     { path: 'app-dashboard', component:  DashboardComponent, resolve: { topics: TopicsResolver, carousal: CarousalResolver }},
     { path: '', redirectTo: '/app-dashboard', pathMatch: 'full'},
     { path: 'subtopics/:id/:topicName', component:  SubTopicComponent},
+    { path: 'subListings/:name/:link/:mainTopicName/:maintopicId', component: SubListingComponent},
     { path: 'subListings/:name/:link', component: SubListingComponent}
 ]

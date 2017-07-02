@@ -15,6 +15,8 @@ export class SubListingComponent implements OnInit {
 
     link: string
     listingName: string
+    mainTopicName
+    maintopicId
     subListingResponse: SubListingResponse[]
 
     constructor(private topicService: TopicService, private activatedRoute: ActivatedRoute) {}
@@ -23,6 +25,8 @@ export class SubListingComponent implements OnInit {
 
         this.link = this.activatedRoute.snapshot.params['link']
         this.listingName = this.activatedRoute.snapshot.params['name']
+        this.mainTopicName = this.activatedRoute.snapshot.params['mainTopicName']
+        this.maintopicId = this.activatedRoute.snapshot.params['maintopicId']
 
         const subListingRequest: SubListingRequest = {
             jsonPath: this.link
