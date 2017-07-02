@@ -1,5 +1,5 @@
 <div class="container">
-    <ol class="breadcrumb">
+    <ol class="breadcrumb pull-right">
         <li><a [routerLink]="['/app-dashboard']">Home</a></li>
         <li *ngIf="mainTopicName !== undefined"><a [routerLink]="['/subtopics',maintopicId,mainTopicName]">{{mainTopicName}}</a></li>
         <li class="active">{{listingName}}</li>
