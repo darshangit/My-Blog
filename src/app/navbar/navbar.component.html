@@ -4,9 +4,17 @@
             <a class="navbar-brand" [routerLink]="['/app-dashboard']">Angular-On-Wheels</a>
             <button class="btn btn-success navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse"><span class="glyphicon glyphicon-chevron-down"></span></button>
         </div>
+
         <div class="navbar-collapse collapse">
             <ul class="nav navbar-nav navbar-left hidden-xs curPointer">
-                <li class="nav"><a href="#">Featured Blogs</a></li>
+                <li class="dropdown">
+                    <a class="dropdown-toggle" data-toggle="dropdown" href="#">Featured Blogs<span class="caret"></span></a>
+                    <ul class="dropdown-menu">
+                        <li *ngFor="let blog of blogs">
+                            <a href="{{blog.blogLink}}" target="_blank">{{blog.blogName}}</a>
+                        </li>
+                    </ul>
+                </li>
                 <li class="nav"><a appModalTrigger="aboutMe">About Me</a></li>
             </ul>
             <ul class="nav navbar-nav navbar-right">
@@ -25,7 +33,7 @@
                     <a *ngIf="!userService.isAuthenticated()" class="myAnchor glyphicon glyphicon-log-in" appModalTrigger="login"> Login</a>
                     <a *ngIf="userService.isAuthenticated()" class="myAnchor glyphicon glyphicon-log-in" appModalTrigger="updateUser"> Welcome,{{userService.getCurrentUserName()}}</a>
                 </li>
-             </ul>
+            </ul>
         </div>
     </div>
 </nav>

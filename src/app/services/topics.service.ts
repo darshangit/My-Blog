@@ -8,7 +8,8 @@ import { SubListingResponse } from 'app/data-models/sub-listing-response.model'
 import { SubListingRequest } from 'app/data-models/sub-listing-request.model'
 import 'rxjs/Rx';
 import { SubListingAllResponse } from 'app/data-models/sub-listing-all-response.model'
-import { CarousalResponse } from "app/data-models/carousal-response.model";
+import { CarousalResponse } from 'app/data-models/carousal-response.model'
+import { BlogsResponse } from 'app/data-models/blogs-response.model'
 
 @Injectable()
 export class TopicService {
@@ -45,6 +46,12 @@ export class TopicService {
     getAllCarousals(): Observable<CarousalResponse[]> {
         return this.http.get('/topics/carousal').map((response: Response) => {
             return response.json() as CarousalResponse[];
+        }).catch(this.handleError);
+    }
+
+    getAllBlogs(): Observable<BlogsResponse[]> {
+        return this.http.get('/topics/blogs').map((response: Response) => {
+            return response.json() as BlogsResponse[];
         }).catch(this.handleError);
     }
 

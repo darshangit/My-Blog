@@ -7,7 +7,6 @@ export class CarousalResolver implements Resolve<any> {
 
     constructor(private topicsService: TopicService) { }
     resolve(route?: ActivatedRouteSnapshot, state?: RouterStateSnapshot) {
-
         return this.topicsService.getAllCarousals();
     }
 
