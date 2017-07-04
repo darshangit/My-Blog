@@ -18,8 +18,8 @@ export class SubListingComponent implements OnInit {
     mainTopicName
     maintopicId
     subListingResponse: SubListingResponse[]
-
-    constructor(private topicService: TopicService, private activatedRoute: ActivatedRoute) {}
+    showComments = false
+    constructor(private topicService: TopicService, private activatedRoute: ActivatedRoute) { }
 
     ngOnInit(): void {
 
@@ -35,5 +35,20 @@ export class SubListingComponent implements OnInit {
         this.topicService.getSubListings(subListingRequest).subscribe((resp) => {
             this.subListingResponse = resp
         })
+        this.loadDiscuss()
+    }
+
+    loadDiscuss(): void {
+        this.showComments = true
+
+        const disqus_config = function () {
+            this.page.url = this.link;
+            this.page.identifier = this.listingName;
+        };
+
+        const d = document, s = d.createElement('script');
+        s.src = 'https://angularonwheels.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', new Date().toLocaleString());
+        (d.head || d.body).appendChild(s);
     }
 }
