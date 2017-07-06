@@ -1,4 +1,4 @@
-<nav class="navbar navbar-xs navbar-inverse navbar-fixed-top">
+<nav class="navbar navbar-xs navbar-inverse navbar-fixed-top mynavbar">
     <div class="container-fluid">
         <div class="navbar-header">
             <a class="navbar-brand" [routerLink]="['/app-dashboard']">Angular-On-Wheels</a>
@@ -26,13 +26,20 @@
                         </form>
                     </form>
                 </li>
-                <li class="nav">
+                <!--<li class="nav">
                     <a *ngIf="!userService.isAuthenticated()" class="myAnchor glyphicon glyphicon-log-in" appModalTrigger="signUp"> Sign-Up</a>
+                </li>-->
+                
+                <li class="nav">
+                    <a href="#" onclick="signOut();">Sign out</a>
                 </li>
                 <li class="nav">
+                    <div class="g-signin2" data-onsuccess="onSignIn()"></div>
+                </li>
+                <!--<li class="nav">
                     <a *ngIf="!userService.isAuthenticated()" class="myAnchor glyphicon glyphicon-log-in" appModalTrigger="login"> Login</a>
                     <a *ngIf="userService.isAuthenticated()" class="myAnchor glyphicon glyphicon-log-in" appModalTrigger="updateUser"> Welcome,{{userService.getCurrentUserName()}}</a>
-                </li>
+                </li>-->
             </ul>
         </div>
     </div>

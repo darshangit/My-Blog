@@ -11,6 +11,30 @@
 }
 
 body {
-  margin-top: 70px;
-  margin-bottom: 50px;
+  /*margin-top: 70px;
+  margin-bottom: 50px;*/
+  font-family: Roboto,arial,sans-serif;
+  font-size: 13px;
 }
+
+
+div.abcRioButton.abcRioButtonLightBlue{
+    background-color: #222;
+    color: #9d9d9d;
+    padding-top: 9px;
+}
+
+span.abcRioButtonContents{
+padding-right: 40px
+}
+
+.navbar {
+  position: relative;
+  min-height: 20px;
+  border: 1px solid transparent;
+}
+
+div.abcRioButton:hover{
+  box-shadow: 0 0 3px 3px rgb(34, 34, 34);
+}
+

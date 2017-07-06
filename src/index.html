@@ -8,11 +8,22 @@
 
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="google-signin-client_id" content="713799670825-pgj3ls7vcvn30c6qgvfijff9vblnql43.apps.googleusercontent.com">
+
   <link rel="icon" type="image/x-icon" href="favicon.ico">
   <link rel="stylesheet" href="/node_modules/bootstrap/dist/css/bootstrap.min.css">
   <link rel="stylesheet" href="/src/styles.css">
   <script src="node_modules/jquery/dist/jquery.min.js"></script>
   <script type="text/javascript" src="node_modules/bootstrap/dist/js/bootstrap.js"></script>
+  <script src="https://apis.google.com/js/platform.js" async defer></script>
+  <script>
+  function signOut() {
+    var auth2 = gapi.auth2.getAuthInstance();
+    auth2.signOut().then(function () {
+      console.log('User signed out.');
+    });
+  }
+</script>
 </head>
 
 <body>
