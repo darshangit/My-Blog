@@ -25,6 +25,7 @@ import { SubListingComponent } from 'app/topics/sub-listing.component'
 import { SearchComponent } from 'app/modals/search.model.component'
 import { SearchPipe } from 'app/pipe/searchFilter.component'
 import { CarousalResolver } from 'app/resolvers/carousal.resolver'
+import { GoogleSignInComponent } from 'app/login-signin/google.signin.component';
 
 declare const jQuery: Object
 
@@ -51,7 +52,8 @@ declare const jQuery: Object
     ModaltriggerDirective,
     PasswordValidatorDirective,
     NavbarComponent,
-    SearchPipe
+    SearchPipe,
+    GoogleSignInComponent
   ],
   providers: [
     UserLoginService,
@@ -61,7 +63,9 @@ declare const jQuery: Object
     {
       provide: JQ_TOKEN,
       useValue: jQuery
-    },
+    },{
+    provide: 'Window', useValue: window
+    }
   ],
    bootstrap: [MyBlogComponent]
 })

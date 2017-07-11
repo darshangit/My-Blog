@@ -17,6 +17,7 @@
                 </li>
                 <li class="nav"><a appModalTrigger="aboutMe">About Me</a></li>
             </ul>
+
             <ul class="nav navbar-nav navbar-right">
                 <li class="nav">
                     <form class="navbar-form hidden-xs">
@@ -34,7 +35,9 @@
                     <a href="#" onclick="signOut();">Sign out</a>
                 </li>
                 <li class="nav">
-                    <div class="g-signin2" data-onsuccess="onSignIn()"></div>
+                    <!--<div class="g-signin2" data-onsuccess="onSignIn()"></div>-->
+                <app-google-signin></app-google-signin>
+
                 </li>
                 <!--<li class="nav">
                     <a *ngIf="!userService.isAuthenticated()" class="myAnchor glyphicon glyphicon-log-in" appModalTrigger="login"> Login</a>
