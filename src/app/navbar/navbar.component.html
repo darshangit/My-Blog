@@ -27,22 +27,10 @@
                         </form>
                     </form>
                 </li>
-                <!--<li class="nav">
-                    <a *ngIf="!userService.isAuthenticated()" class="myAnchor glyphicon glyphicon-log-in" appModalTrigger="signUp"> Sign-Up</a>
-                </li>-->
-                
-                <li class="nav">
-                    <a href="#" onclick="signOut();">Sign out</a>
-                </li>
-                <li class="nav">
-                    <!--<div class="g-signin2" data-onsuccess="onSignIn()"></div>-->
-                <app-google-signin></app-google-signin>
 
+                <li class="nav">
+                    <app-google-signin></app-google-signin>
                 </li>
-                <!--<li class="nav">
-                    <a *ngIf="!userService.isAuthenticated()" class="myAnchor glyphicon glyphicon-log-in" appModalTrigger="login"> Login</a>
-                    <a *ngIf="userService.isAuthenticated()" class="myAnchor glyphicon glyphicon-log-in" appModalTrigger="updateUser"> Welcome,{{userService.getCurrentUserName()}}</a>
-                </li>-->
             </ul>
         </div>
     </div>

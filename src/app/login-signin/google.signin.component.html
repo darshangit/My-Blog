@@ -1,0 +1,5 @@
+<div class="myAnchor">
+    <button *ngIf="showLogin" class="btn btn-xs" (click)="onGoogleLogin()"><span class="glyphicon glyphicon-user"></span></button>
+    <button *ngIf="!showLogin" class="btn btn-xs" (click)="signOut()"><span class="capitalize glyphicon glyphicon-log-out"></span></button>
+    <button *ngIf="!showLogin" class="btn btn-xs"><span class="capitalize">Hi,{{ response.name.givenName }}</span></button>
+</div>

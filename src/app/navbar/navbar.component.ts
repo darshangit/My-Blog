@@ -15,7 +15,6 @@ export class NavbarComponent implements OnInit {
     sublistingArray: SubListingAllResponse[]
     blogs: BlogsResponse[]
     public auth2: any
-    private clientId: string = '713799670825-pgj3ls7vcvn30c6qgvfijff9vblnql43.apps.googleusercontent.com';
 
     constructor(private userService: UserLoginService, private topicService: TopicService) { }
 
