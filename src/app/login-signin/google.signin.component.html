@@ -1,5 +1,11 @@
-<div class="myAnchor">
+<div class="myAnchor dropdown">
     <button *ngIf="showLogin" class="btn btn-xs" (click)="onGoogleLogin()"><span class="glyphicon glyphicon-user"></span></button>
-    <button *ngIf="!showLogin" class="btn btn-xs" (click)="signOut()"><span class="capitalize glyphicon glyphicon-log-out"></span></button>
-    <button *ngIf="!showLogin" class="btn btn-xs"><span class="capitalize">Hi,{{ response.name.givenName }}</span></button>
+
+    <li *ngIf="!showLogin" class="dropdown">
+        <a class="dropdown-toggle" data-toggle="dropdown" href="#"><img class="navbarPic" src="{{response.image.url}}"/></a>
+        <ul class="dropdown-menu navDropDown">
+            <li><a href="#"><span class="capitalize glyphicon glyphicon-user"> Hi,{{ response.name.givenName }}</span></a></li>
+            <li><a (click)="signOut()"><span class="capitalize glyphicon glyphicon-log-out"></span> Sign Out</a></li>
+        </ul>
+    </li>
 </div>
