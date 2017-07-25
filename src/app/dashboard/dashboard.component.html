@@ -10,7 +10,6 @@
                 <li *ngIf="carousalList.length > 3" data-target="#theCarousal" data-slide-to="3"></li>
                 <li *ngIf="carousalList.length > 4" data-target="#theCarousal" data-slide-to="4"></li>
             </ol>
-
             <div class="carousel-inner">
                 <div class="item active">
                     <img (click) = "openListing(carousalList[0])" src="../../assets/carousal/{{carousalList[0]?.carousalImage}}" alt="1" class="img-responsive" />

@@ -25,7 +25,8 @@ import { SubListingComponent } from 'app/topics/sub-listing.component'
 import { SearchComponent } from 'app/modals/search.model.component'
 import { SearchPipe } from 'app/pipe/searchFilter.component'
 import { CarousalResolver } from 'app/resolvers/carousal.resolver'
-import { GoogleSignInComponent } from 'app/login-signin/google.signin.component';
+import { GoogleSignInComponent } from 'app/login-signin/google.signin.component'
+import { GoogleLoginService } from 'app/services/google-login.services'
 
 declare const jQuery: Object
 
@@ -60,6 +61,7 @@ declare const jQuery: Object
     TopicService,
     TopicsResolver,
     CarousalResolver,
+    GoogleLoginService,
     {
       provide: JQ_TOKEN,
       useValue: jQuery
