@@ -2,9 +2,9 @@
     <button *ngIf="showLogin" class="btn btn-social-icon btn-xs btn-google" (click)="onGoogleLogin()"><span class="fa fa-google"></span></button>
 
     <li *ngIf="!showLogin" class="dropdown">
-        <a class="dropdown-toggle" data-toggle="dropdown" href="#"><img class="navbarPic" src="{{response.image.url}}"/></a>
+        <a class="dropdown-toggle" data-toggle="dropdown" href="#"><img class="navbarPic" src="{{photoURL}}"/></a>
         <ul class="dropdown-menu navDropDown">
-            <li><a appModalTrigger="userProfile"><span class="capitalize glyphicon glyphicon-user"> Hi,{{ response.name.givenName }}</span></a></li>
+            <li><a appModalTrigger="userProfile"><span class="capitalize glyphicon glyphicon-user"> Hi,{{displayName}}</span></a></li>
             <li><a (click)="signOut()"><span class="capitalize glyphicon glyphicon-log-out"></span> Sign Out</a></li>
         </ul>
     </li>

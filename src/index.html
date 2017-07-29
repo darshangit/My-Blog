@@ -14,6 +14,22 @@
   <script src="node_modules/jquery/dist/jquery.min.js"></script>
   <script type="text/javascript" src="node_modules/bootstrap/dist/js/bootstrap.js"></script>
   <script src="https://apis.google.com/js/platform.js" async defer></script>
+
+
+<script src="https://www.gstatic.com/firebasejs/4.2.0/firebase.js"></script>
+<script>
+  // Initialize Firebase
+  var config = {
+    apiKey: "AIzaSyDyfJ2GB1d538eeliwmQxmPiUToQSvDIF8",
+    authDomain: "angularonwheels.firebaseapp.com",
+    databaseURL: "https://angularonwheels.firebaseio.com",
+    projectId: "angularonwheels",
+    storageBucket: "",
+    messagingSenderId: "713799670825"
+  };
+  firebase.initializeApp(config);
+</script>
+
   <script>
 
     function onLoadFunction(){
@@ -39,8 +55,7 @@
       });
       System.import('app/boot')
             .then(null, console.error.bind(console));
-    </script>
-
+</script>
 
 </head>
 

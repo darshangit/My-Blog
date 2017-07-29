@@ -31,4 +31,5 @@ export class NavbarComponent implements OnInit {
     searchSubListings(searchterm) {
         console.log('sublisting array', this.sublistingArray)
     }
+
 }

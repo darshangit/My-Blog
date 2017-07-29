@@ -27,8 +27,16 @@ import { SearchPipe } from 'app/pipe/searchFilter.component'
 import { CarousalResolver } from 'app/resolvers/carousal.resolver'
 import { GoogleSignInComponent } from 'app/login-signin/google.signin.component'
 import { GoogleLoginService } from 'app/services/google-login.services'
+import { AngularFireModule } from 'angularfire2';
 
 declare const jQuery: Object
+export const firebaseConfig = {
+  apiKey: 'AIzaSyDyfJ2GB1d538eeliwmQxmPiUToQSvDIF8',
+  authDomain: 'angularonwheels.firebaseapp.com',
+  databaseURL: 'https://angularonwheels.firebaseio.com',
+  storageBucket: '',
+  messagingSenderId: '713799670825'
+};
 
 @NgModule({
   imports: [
@@ -36,6 +44,7 @@ declare const jQuery: Object
     FormsModule,
     HttpModule,
     ReactiveFormsModule,
+    AngularFireModule.initializeApp(firebaseConfig),
     RouterModule.forRoot(appRoutes)
 ],
   declarations: [
