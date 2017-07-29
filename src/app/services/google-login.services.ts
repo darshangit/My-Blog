@@ -11,7 +11,6 @@ export class GoogleLoginService {
     constructor(private http: Http) {}
 
     initialLogin(userIdToken) {
-        console.log('Heloooo')
         const headers = new Headers({ 'Content-Type': 'application/json' })
         const requestOp = new RequestOptions({ headers })
         this.http.post('/api/initialLogin', userIdToken, requestOp).catch(this.handleError).subscribe();
@@ -23,14 +22,14 @@ export class GoogleLoginService {
         this.http.post('/api/favourite', JSON.stringify(userActionEntity), requestOp).catch(this.handleError);
     }
 
-    subListingViwed(userActionEntity: UserAction) {
+    subListingViewed(userActionEntity: UserAction) {
         const headers = new Headers({ 'Content-Type': 'application/json' })
         const requestOp = new RequestOptions({ headers })
         this.http.post('/api/subListingViews', JSON.stringify(userActionEntity), requestOp).catch(this.handleError);
     }
 
     getUserProfile(userIdToken): Observable<UserProfileResponse> {
-         const headers = new Headers({ 'Content-Type': 'application/json' })
+        const headers = new Headers({ 'Content-Type': 'application/json' })
         const requestOp = new RequestOptions({ headers })
 
         return this.http.post('/api/save', JSON.stringify(userIdToken), requestOp).map((response: Response) => {
