@@ -11,9 +11,10 @@ export class GoogleLoginService {
     constructor(private http: Http) {}
 
     initialLogin(userIdToken) {
+        console.log('Heloooo')
         const headers = new Headers({ 'Content-Type': 'application/json' })
         const requestOp = new RequestOptions({ headers })
-        this.http.post('/api/initialLogin', JSON.stringify(userIdToken), requestOp).catch(this.handleError);
+        this.http.post('/api/initialLogin', userIdToken, requestOp).catch(this.handleError).subscribe();
     }
 
     addFavourite(userActionEntity: UserAction) {

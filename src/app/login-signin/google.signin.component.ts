@@ -36,19 +36,11 @@ export class GoogleSignInComponent implements OnInit {
         let that = this;
         var provider = new firebase.auth.GoogleAuthProvider();
         provider.addScope('https://www.googleapis.com/auth/userinfo.email');
-        provider.clientid = '713799670825-pgj3ls7vcvn30c6qgvfijff9vblnql43.apps.googleusercontent.com'
         firebase.auth().signInWithPopup(provider).then(function (result) {
-            // This gives you a Google Access Token. You can use it to access the Google API.
-            var token = result.credential.accessToken;
-            // The signed-in user info.
             that.response = result.user;
-            console.log('response.displayName', that.response.displayName)
-            console.log('resultt', that.response.ze)
-
             that.photoURL = that.response.photoURL
             that.displayName = that.response.displayName.split(' ')[0]
-            that.idToken = that.response.ze
-            this.googleLoginService.initialLogin(that.idToken)
+            that.googleLoginService.initialLogin(that.response.uid)
             that.showLogin = false
         }).catch(function (error) {
         });
