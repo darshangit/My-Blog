@@ -14,7 +14,7 @@ export class ProfileComponent implements OnChanges {
     @Input() userId: string
     ariaLevel = 0
     @ViewChild('profilecontainer') containerEL: ElementRef
-
+    imageSrc: string
     constructor( @Inject(JQ_TOKEN) private $: any, private googleLoginService: GoogleLoginService) { }
 
     ngOnChanges(): void {
@@ -25,6 +25,29 @@ export class ProfileComponent implements OnChanges {
                 this.ariaLevel = resp.learningLevel
                 this.$('.progress-bar').css('width', this.ariaLevel + '%').attr('aria-valuenow', this.ariaLevel);
             });
+        }
+    }
+
+    closeModal() {
+        this.$(this.containerEL.nativeElement).modal('hide')
+    }
+
+    getImageSource(progressLevel: number){
+
+        if (progressLevel <= 20) {
+            this.imageSrc = '../../assets/profile-level/level1.jpg';
+        }
+        else if (progressLevel >= 21 && progressLevel <= 40) {
+            this.imageSrc = '../../assets/profile-level/level2.jpg';
+        }
+        else if (progressLevel >= 41 && progressLevel <= 60){
+            this.imageSrc = '../../assets/profile-level/level3.jpg';
+        }
+        else if (progressLevel >= 61 && progressLevel <= 80){
+            this.imageSrc = '../../assets/profile-level/level4.jpg';
+        }
+        else if (progressLevel >= 81 && progressLevel <= 100){
+            this.imageSrc = '../../assets/profile-level/level5.jpg';
         }
     }
 }

@@ -5,7 +5,7 @@
                 <button type="button" class="close" data-dismiss="modal"></button>
                 <h4 class="modal-title">My Profile</h4>
             </div>
-            <div class="modal-body">
+            <div class="modal-body" (click)="closeModal()">
                 <div class="row">
                     <div class="col-md-6">
                         <p class="pull-center">Your Total Visits To The Site: <span class="badge badge-primary">{{userProfileResponse?.totalSiteVisits}}</span></p>
@@ -22,6 +22,9 @@
                 <div class="row">
                     <div class="col-md-4">
                         <h4>Recently Viewed</h4>
+                        <div class="list-group">
+                            <a *ngFor="let sublisting of userProfileResponse?.recentlyViewed" [routerLink]="['/subListings',sublisting.listingName,sublisting.listingLink]">{{sublisting.listingName}}</a>
+                        </div>
                     </div>
                     <div class="col-md-4">
                         <h4 class="pull">Learning Level</h4>
