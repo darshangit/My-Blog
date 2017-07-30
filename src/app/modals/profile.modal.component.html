@@ -1,0 +1,43 @@
+<div id="{{elementId}}" #profilecontainer class="modal fade">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal"></button>
+                <h4 class="modal-title">My Profile</h4>
+            </div>
+            <div class="modal-body">
+                <div class="row">
+                    <div class="col-md-6">
+                        <p class="pull-center">Your Total Visits To The Site: <span class="badge badge-primary">{{userProfileResponse?.totalSiteVisits}}</span></p>
+                    </div>
+                    <div class="col-md-6">
+                        <p class="pull-right">Total Topics Present: <span class="badge">{{userProfileResponse?.totalTopicsPresent}}</span></p>
+                    </div>
+                    <div class="col-md-12">
+                        <p class="pull-right">Number Of Topic(s) Viewed: <span class="badge">{{userProfileResponse?.totalTopicsViewed}}</span></p>
+                    </div>
+                </div>
+                <hr>
+
+                <div class="row">
+                    <div class="col-md-4">
+                        <h4>Recently Viewed</h4>
+                    </div>
+                    <div class="col-md-4">
+                        <h4 class="pull">Learning Level</h4>
+                        <div class="progress">
+                            <div class="progress-bar progress-bar-striped active" role="progressbar" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100"
+                                style="width:40%">
+                                {{ariaLevel}}%
+                            </div>
+                        </div>
+                        <img class="img-responsive img-circle" src="../../assets/profile-level/level1.jpg" />
+                    </div>
+                    <div class="col-md-4">
+                        <h4 class="pull">Favourites <i class="fa fa-star-o" aria-hidden="true"></i></h4>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

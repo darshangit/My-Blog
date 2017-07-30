@@ -28,6 +28,7 @@ import { CarousalResolver } from 'app/resolvers/carousal.resolver'
 import { GoogleSignInComponent } from 'app/login-signin/google.signin.component'
 import { GoogleLoginService } from 'app/services/google-login.services'
 import { AngularFireModule } from 'angularfire2';
+import { ProfileComponent } from 'app/modals/profile.modal.component'
 
 declare const jQuery: Object
 export const firebaseConfig = {
@@ -63,7 +64,8 @@ export const firebaseConfig = {
     PasswordValidatorDirective,
     NavbarComponent,
     SearchPipe,
-    GoogleSignInComponent
+    GoogleSignInComponent,
+    ProfileComponent
   ],
   providers: [
     UserLoginService,

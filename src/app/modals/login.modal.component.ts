@@ -18,7 +18,7 @@ export class LoginComponent {
     @Input() elementId: string
     @ViewChild('logincontainer') containerEL: ElementRef
 
-    constructor(@Inject(JQ_TOKEN) private $: any,private userService: UserLoginService){}
+    constructor(@Inject(JQ_TOKEN) private $: any, private userService: UserLoginService){}
 
     login(formvalues) {
 
