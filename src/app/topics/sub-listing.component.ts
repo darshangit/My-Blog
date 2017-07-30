@@ -3,6 +3,7 @@ import { ActivatedRoute } from '@angular/router'
 import { TopicService } from 'app/services/topics.service'
 import { SubListingRequest } from 'app/data-models/sub-listing-request.model'
 import { SubListingResponse } from 'app/data-models/sub-listing-response.model'
+import { GoogleLoginService } from 'app/services/google-login.services'
 
 @Component({
     templateUrl: './sub-listing.component.html',
@@ -19,7 +20,8 @@ export class SubListingComponent implements OnInit {
     maintopicId
     subListingResponse: SubListingResponse[]
     showComments = false
-    constructor(private topicService: TopicService, private activatedRoute: ActivatedRoute) { }
+    userLoggeIdIn: string
+    constructor(private topicService: TopicService, private activatedRoute: ActivatedRoute, private googleService: GoogleLoginService) { }
 
     ngOnInit(): void {
 
@@ -35,6 +37,8 @@ export class SubListingComponent implements OnInit {
         this.topicService.getSubListings(subListingRequest).subscribe((resp) => {
             this.subListingResponse = resp
         })
+
+        this.userLoggeIdIn = this.googleService.getUserLoggedIn()
         this.loadDiscuss()
     }
 

@@ -24,6 +24,7 @@ export class ProfileComponent implements OnChanges {
                 this.userProfileResponse = resp
                 this.ariaLevel = resp.learningLevel
                 this.$('.progress-bar').css('width', this.ariaLevel + '%').attr('aria-valuenow', this.ariaLevel);
+                this.getImageSource(this.ariaLevel)
             });
         }
     }
@@ -32,21 +33,17 @@ export class ProfileComponent implements OnChanges {
         this.$(this.containerEL.nativeElement).modal('hide')
     }
 
-    getImageSource(progressLevel: number){
+    getImageSource(progressLevel: number) {
 
         if (progressLevel <= 20) {
             this.imageSrc = '../../assets/profile-level/level1.jpg';
-        }
-        else if (progressLevel >= 21 && progressLevel <= 40) {
+        }else if (progressLevel >= 21 && progressLevel <= 40) {
             this.imageSrc = '../../assets/profile-level/level2.jpg';
-        }
-        else if (progressLevel >= 41 && progressLevel <= 60){
+        }else if (progressLevel >= 41 && progressLevel <= 60){
             this.imageSrc = '../../assets/profile-level/level3.jpg';
-        }
-        else if (progressLevel >= 61 && progressLevel <= 80){
+        }else if (progressLevel >= 61 && progressLevel <= 80){
             this.imageSrc = '../../assets/profile-level/level4.jpg';
-        }
-        else if (progressLevel >= 81 && progressLevel <= 100){
+        }else if (progressLevel >= 81 && progressLevel <= 100){
             this.imageSrc = '../../assets/profile-level/level5.jpg';
         }
     }

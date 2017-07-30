@@ -16,7 +16,7 @@ export class SubTopicComponent implements OnInit {
     mainTopicName: string
     mainTopicId: string
     userLoggedIn: string
-    constructor(private topicService: TopicService, private route: ActivatedRoute, private router: Router, 
+    constructor(private topicService: TopicService, private route: ActivatedRoute, private router: Router,
         private googleLoginService: GoogleLoginService) {
     }
 
