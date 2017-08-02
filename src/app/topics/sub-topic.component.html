@@ -2,9 +2,6 @@
     <ol class="breadcrumb pull-right">
         <li><a [routerLink]="['/app-dashboard']">Home</a></li>
         <li class="active">{{mainTopicName}}</li>
-        <div *ngIf = "userLoggeIdIn !== null && userLoggeIdIn !== undefined">
-          <app-favourite-component></app-favourite-component>
-        </div>
     </ol>
     <h3>{{mainTopicName}}</h3>
     <hr>

@@ -39,6 +39,7 @@ export class SubListingComponent implements OnInit {
         })
 
         this.userLoggeIdIn = this.googleService.getUserLoggedIn()
+        console.log('userLoggeIdIn', this.userLoggeIdIn)
         this.loadDiscuss()
     }
 
@@ -54,5 +55,13 @@ export class SubListingComponent implements OnInit {
         s.src = 'https://angularonwheels.disqus.com/embed.js';
         s.setAttribute('data-timestamp', new Date().toLocaleString());
         (d.head || d.body).appendChild(s);
+    }
+
+    isAlreadyFavourite() {
+        return true;
+    }
+
+    checkUncheckFavourite(value: string) {
+        console.log('checkuncheck', value)
     }
 }
