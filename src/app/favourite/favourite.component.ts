@@ -1,16 +1,18 @@
-import { Component, Input, Output, EventEmitter } from '@angular/core';
+import { Component, Input, Output, EventEmitter, OnChanges } from '@angular/core';
 
 @Component({
     selector: 'app-favourite-component',
     templateUrl: './favourite.component.html',
     styleUrls: ['./favourite.component.less']
 })
-export class FavouriteComponent {
+export class FavouriteComponent implements OnChanges {
+
     iconColor: string
     @Output() vote = new EventEmitter()
+    @Input() voted
 
-    @Input() set voted(val) {
-        this.iconColor = val ? 'yellowgreen' : 'gray';
+    ngOnChanges(): void {
+        this.iconColor = this.voted ? 'yellowgreen' : 'gray';
     }
 
     onClick() {

@@ -22,6 +22,7 @@ export class SubListingComponent implements OnInit {
     subListingResponse: SubListingResponse[]
     showComments = false
     userLoggeIdIn: string
+    alreadyLikeUnlike: boolean
     constructor(private topicService: TopicService, private activatedRoute: ActivatedRoute, private googleService: GoogleLoginService) { }
 
     ngOnInit(): void {
@@ -40,7 +41,17 @@ export class SubListingComponent implements OnInit {
         })
 
         this.userLoggeIdIn = this.googleService.getUserLoggedIn()
-        console.log('userLoggeIdIn', this.userLoggeIdIn)
+
+        const userAction: UserAction = {
+            userId: this.userLoggeIdIn,
+            listingName: this.listingName,
+            listingLink: this.link,
+            favourite: null,
+            createTimestamp: null
+        }
+       this.googleService.getFavourite(userAction).subscribe((resp) => {
+            this.alreadyLikeUnlike =  resp;
+        });
         this.loadDiscuss()
     }
 
@@ -56,17 +67,6 @@ export class SubListingComponent implements OnInit {
         s.src = 'https://angularonwheels.disqus.com/embed.js';
         s.setAttribute('data-timestamp', new Date().toLocaleString());
         (d.head || d.body).appendChild(s);
-    }
-
-    isAlreadyFavourite() {
-        const userAction: UserAction = {
-            userId: this.userLoggeIdIn,
-            listingName: this.listingName,
-            listingLink: this.link,
-            favourite: null,
-            createTimestamp: null
-        }
-        return this.googleService.getFavourite(userAction).subscribe();
     }
 
     checkUncheckFavourite(value: string) {

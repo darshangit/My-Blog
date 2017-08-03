@@ -38,6 +38,9 @@
                     </div>
                     <div class="col-md-4">
                         <h4 class="pull">Favourites <i class="fa fa-star-o" aria-hidden="true"></i></h4>
+                         <div class="list-group">
+                            <a *ngFor="let sublisting of userProfileResponse?.favourites" [routerLink]="['/subListings',sublisting.listingName,sublisting.listingLink]">{{sublisting.listingName}}</a>
+                        </div>
                     </div>
                 </div>
             </div>

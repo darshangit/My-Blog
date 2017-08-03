@@ -18,11 +18,11 @@ export class GoogleLoginService {
         this.http.post('/api/initialLogin', userIdToken, requestOp).catch(this.handleError).subscribe();
     }
 
-    getFavourite(userActionEntity: UserAction):Observable<Boolean> {
+    getFavourite(userActionEntity: UserAction):Observable<boolean> {
         const headers = new Headers({ 'Content-Type': 'application/json' })
         const requestOp = new RequestOptions({ headers })
-        return this.http.post('/api/favourite', JSON.stringify(userActionEntity), requestOp).map((response: Response) => {
-            return response.json() as Boolean;
+        return this.http.post('/api/getFavourite', JSON.stringify(userActionEntity), requestOp).map((response: Response) => {
+            return response.json() as boolean;
         }).catch(this.handleError);
     }
 
