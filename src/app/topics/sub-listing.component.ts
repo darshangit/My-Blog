@@ -4,6 +4,7 @@ import { TopicService } from 'app/services/topics.service'
 import { SubListingRequest } from 'app/data-models/sub-listing-request.model'
 import { SubListingResponse } from 'app/data-models/sub-listing-response.model'
 import { GoogleLoginService } from 'app/services/google-login.services'
+import { UserAction } from 'app/data-models/user-action.model'
 
 @Component({
     templateUrl: './sub-listing.component.html',
@@ -58,10 +59,30 @@ export class SubListingComponent implements OnInit {
     }
 
     isAlreadyFavourite() {
-        return true;
+        const userAction: UserAction = {
+            userId: this.userLoggeIdIn,
+            listingName: this.listingName,
+            listingLink: this.link,
+            favourite: null,
+            createTimestamp: null
+        }
+        return this.googleService.getFavourite(userAction).subscribe();
     }
 
     checkUncheckFavourite(value: string) {
-        console.log('checkuncheck', value)
+
+        const userAction: UserAction = {
+            userId: this.userLoggeIdIn,
+            listingName: this.listingName,
+            listingLink: this.link,
+            favourite: null,
+            createTimestamp: null
+        }
+
+        if (value === 'yellowgreen') {
+            this.googleService.addFavourite(userAction);
+        } else if (value === 'gray') {
+            this.googleService.removeFavourite(userAction);
+        }
     }
 }

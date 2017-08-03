@@ -18,10 +18,24 @@ export class GoogleLoginService {
         this.http.post('/api/initialLogin', userIdToken, requestOp).catch(this.handleError).subscribe();
     }
 
+    getFavourite(userActionEntity: UserAction):Observable<Boolean> {
+        const headers = new Headers({ 'Content-Type': 'application/json' })
+        const requestOp = new RequestOptions({ headers })
+        return this.http.post('/api/favourite', JSON.stringify(userActionEntity), requestOp).map((response: Response) => {
+            return response.json() as Boolean;
+        }).catch(this.handleError);
+    }
+
     addFavourite(userActionEntity: UserAction) {
         const headers = new Headers({ 'Content-Type': 'application/json' })
         const requestOp = new RequestOptions({ headers })
-        this.http.post('/api/favourite', JSON.stringify(userActionEntity), requestOp).catch(this.handleError);
+        this.http.post('/api/favourite', JSON.stringify(userActionEntity), requestOp).catch(this.handleError).subscribe();
+    }
+
+    removeFavourite(userActionEntity: UserAction) {
+        const headers = new Headers({ 'Content-Type': 'application/json' })
+        const requestOp = new RequestOptions({ headers })
+        this.http.post('/api/removeFavourite', JSON.stringify(userActionEntity), requestOp).catch(this.handleError).subscribe();
     }
 
     subListingViewed(userActionEntity: UserAction) {
