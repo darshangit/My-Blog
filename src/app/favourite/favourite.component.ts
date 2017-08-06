@@ -19,4 +19,5 @@ export class FavouriteComponent implements OnChanges {
         this.iconColor = this.iconColor === 'yellowgreen' ? 'gray' : 'yellowgreen';
         this.vote.emit(this.iconColor);
     }
+
 }
