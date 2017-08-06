@@ -1,4 +1,4 @@
-# MyBlog https://travis-ci.org/darshangit/My-Blog-Angular-UI.svg?branch=master
+# MyBlog <img src="https://travis-ci.org/darshangit/My-Blog-Angular-UI.svg?branch=master"/>
 
 This is a personal project to create a self BLOG.
 
