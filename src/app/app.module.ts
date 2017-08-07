@@ -31,7 +31,7 @@ import { AngularFireModule } from 'angularfire2';
 import { ProfileComponent } from 'app/modals/profile.modal.component'
 import { FavouriteComponent } from 'app/favourite/favourite.component'
 
-declare const jQuery: Object
+declare let jQuery: Object
 export const firebaseConfig = {
   apiKey: 'AIzaSyDyfJ2GB1d538eeliwmQxmPiUToQSvDIF8',
   authDomain: 'angularonwheels.firebaseapp.com',
@@ -39,6 +39,10 @@ export const firebaseConfig = {
   storageBucket: '',
   messagingSenderId: '713799670825'
 };
+
+export function jQueryFactory() {
+  return window['jQuery'];
+}
 
 @NgModule({
   imports: [
@@ -77,7 +81,7 @@ export const firebaseConfig = {
     GoogleLoginService,
     {
       provide: JQ_TOKEN,
-      useValue: jQuery
+      useFactory: jQueryFactory
     },{
     provide: 'Window', useValue: window
     }
