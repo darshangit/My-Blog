@@ -10,13 +10,10 @@ import { DashboardComponent } from './dashboard/dashboard.component'
 import { NavbarComponent } from './navbar/navbar.component'
 import { MainTopicComponent } from './topics/main-topics-thumbnail.component'
 import { FooterComponent } from './footer/footer.component'
-import { SignupComponent } from './modals/signup.modal.component'
 import { JQ_TOKEN } from './common/jQuery.services'
 import { ModaltriggerDirective } from './modals/modal.trigger.directive'
 import { PasswordValidatorDirective } from 'app/modals/passwordValidator.directive'
-import { LoginComponent } from 'app/modals/login.modal.component'
 import { UserLoginService } from 'app/services/user-login.services'
-import { UserUpdateComponent } from 'app/modals/updateuser.modal.component'
 import { TopicService } from 'app/services/topics.service'
 import { TopicsResolver } from 'app/resolvers/topics.resolver'
 import { SubTopicComponent } from 'app/topics/sub-topic.component'
@@ -59,9 +56,6 @@ export function jQueryFactory() {
     CollapsibleWellComponent,
     FooterComponent,
     MainTopicComponent,
-    SignupComponent,
-    LoginComponent,
-    UserUpdateComponent,
     SubTopicComponent,
     SubListingComponent,
     SearchComponent,
