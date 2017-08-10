@@ -15,13 +15,13 @@ export class GoogleLoginService {
         this.userid = userIdToken;
         const headers = new Headers({ 'Content-Type': 'application/json' })
         const requestOp = new RequestOptions({ headers })
-        this.http.post('/api/initialLogin', userIdToken, requestOp).catch(this.handleError).subscribe();
+        this.http.post('https://loginmicroservices.herokuapp.com/api/initialLogin', userIdToken, requestOp).catch(this.handleError).subscribe();
     }
 
     getFavourite(userActionEntity: UserAction):Observable<boolean> {
         const headers = new Headers({ 'Content-Type': 'application/json' })
         const requestOp = new RequestOptions({ headers })
-        return this.http.post('/api/getFavourite', JSON.stringify(userActionEntity), requestOp).map((response: Response) => {
+        return this.http.post('https://loginmicroservices.herokuapp.com/api/getFavourite', JSON.stringify(userActionEntity), requestOp).map((response: Response) => {
             return response.json() as boolean;
         }).catch(this.handleError);
     }
@@ -29,26 +29,26 @@ export class GoogleLoginService {
     addFavourite(userActionEntity: UserAction) {
         const headers = new Headers({ 'Content-Type': 'application/json' })
         const requestOp = new RequestOptions({ headers })
-        this.http.post('/api/favourite', JSON.stringify(userActionEntity), requestOp).catch(this.handleError).subscribe();
+        this.http.post('https://loginmicroservices.herokuapp.com/api/favourite', JSON.stringify(userActionEntity), requestOp).catch(this.handleError).subscribe();
     }
 
     removeFavourite(userActionEntity: UserAction) {
         const headers = new Headers({ 'Content-Type': 'application/json' })
         const requestOp = new RequestOptions({ headers })
-        this.http.post('/api/removeFavourite', JSON.stringify(userActionEntity), requestOp).catch(this.handleError).subscribe();
+        this.http.post('https://loginmicroservices.herokuapp.com/api/removeFavourite', JSON.stringify(userActionEntity), requestOp).catch(this.handleError).subscribe();
     }
 
     subListingViewed(userActionEntity: UserAction) {
         const headers = new Headers({ 'Content-Type': 'application/json' })
         const requestOp = new RequestOptions({ headers })
-        this.http.post('/api/subListingViews', JSON.stringify(userActionEntity), requestOp).catch(this.handleError).subscribe();
+        this.http.post('https://loginmicroservices.herokuapp.com/api/subListingViews', JSON.stringify(userActionEntity), requestOp).catch(this.handleError).subscribe();
     }
 
     getUserProfile(userIdToken): Observable<UserProfileResponse> {
         const headers = new Headers({ 'Content-Type': 'application/json' })
         const requestOp = new RequestOptions({ headers })
 
-        return this.http.post('/api/userProfile', userIdToken, requestOp).map((response: Response) => {
+        return this.http.post('https://loginmicroservices.herokuapp.com/api/userProfile', userIdToken, requestOp).map((response: Response) => {
             return response.json() as UserProfileResponse;
         }).catch(this.handleError);
     }

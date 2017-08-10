@@ -17,19 +17,19 @@ export class TopicService {
     constructor(private http: Http) { }
 
     getMainTopics(): Observable<MainTopicsModel[]> {
-        return this.http.get('/topics/mainTopics').map((response: Response) => {
+        return this.http.get('https://topicsmicroservices.herokuapp.com/topics/mainTopics').map((response: Response) => {
             return response.json() as MainTopicsModel[];
         }).catch(this.handleError);
     }
 
     getAllSubListings(): Observable<SubListingAllResponse[]> {
-        return this.http.get('topics/sublistings').map((response: Response) => {
+        return this.http.get('https://topicsmicroservices.herokuapp.com/topics/sublistings').map((response: Response) => {
             return response.json() as SubListingAllResponse[];
         }).catch(this.handleError);
     }
 
     getSubTopics(subTopicId): Observable<SubTopicsResponseModel[]> {
-        return this.http.get('/topics/subTopics/' + subTopicId).map((response: Response) => {
+        return this.http.get('https://topicsmicroservices.herokuapp.com/topics/subTopics/' + subTopicId).map((response: Response) => {
             return response.json() as SubTopicsResponseModel[];
         }).catch(this.handleError);
     }
@@ -38,19 +38,19 @@ export class TopicService {
         const headers = new Headers({ 'Content-Type': 'application/json' })
         const requestop = new RequestOptions({ headers })
 
-        return this.http.post('/topics/getListings', JSON.stringify(subListingRequest), requestop).map((response: Response) => {
+        return this.http.post('https://topicsmicroservices.herokuapp.com/topics/getListings', JSON.stringify(subListingRequest), requestop).map((response: Response) => {
             return response.json() as SubListingResponse[];
         }).catch(this.handleError);
     }
 
     getAllCarousals(): Observable<CarousalResponse[]> {
-        return this.http.get('/topics/carousal').map((response: Response) => {
+        return this.http.get('https://topicsmicroservices.herokuapp.com/topics/carousal').map((response: Response) => {
             return response.json() as CarousalResponse[];
         }).catch(this.handleError);
     }
 
     getAllBlogs(): Observable<BlogsResponse[]> {
-        return this.http.get('/topics/blogs').map((response: Response) => {
+        return this.http.get('https://topicsmicroservices.herokuapp.com/topics/blogs').map((response: Response) => {
             return response.json() as BlogsResponse[];
         }).catch(this.handleError);
     }
