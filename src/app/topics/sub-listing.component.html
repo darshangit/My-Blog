@@ -6,7 +6,7 @@
     </ol>
 
     <div class="row">
-        <div class="col-md-3">
+        <div class="col-md-8">
             <h3>{{listingName}}  <app-favourite-component *ngIf="userLoggeIdIn !== null && userLoggeIdIn !== undefined" (vote)="checkUncheckFavourite($event)" [voted]="alreadyLikeUnlike"></app-favourite-component></h3>
         </div>
     </div>
