@@ -10,6 +10,7 @@ import 'rxjs/Rx';
 import { SubListingAllResponse } from 'app/data-models/sub-listing-all-response.model'
 import { CarousalResponse } from 'app/data-models/carousal-response.model'
 import { BlogsResponse } from 'app/data-models/blogs-response.model'
+import { SubListingEntityModel } from 'app/data-models/sub-listing-entity-response.model'
 
 @Injectable()
 export class TopicService {
@@ -70,6 +71,15 @@ export class TopicService {
         // }).catch(this.handleError);
                 return this.http.get('/topics/blogs').map((response: Response) => {
             return response.json() as BlogsResponse[];
+        }).catch(this.handleError);
+    }
+
+    getSublistingByName(subListingName: string): Observable<SubListingEntityModel> {
+        // return this.http.get('https://topicsmicroservices.herokuapp.com/topics/blogs').map((response: Response) => {
+        //     return response.json() as BlogsResponse[];
+        // }).catch(this.handleError);
+                return this.http.get('/topics/sublistings/'+ subListingName).map((response: Response) => {
+            return response.json() as SubListingEntityModel;
         }).catch(this.handleError);
     }
 

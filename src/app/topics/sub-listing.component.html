@@ -7,7 +7,10 @@
 
     <div class="row">
         <div class="col-md-8">
-            <h3>{{listingName}}  <app-favourite-component *ngIf="userLoggeIdIn !== null && userLoggeIdIn !== undefined" (vote)="checkUncheckFavourite($event)" [voted]="alreadyLikeUnlike"></app-favourite-component></h3>
+            <h3>{{listingName}}
+                <app-favourite-component *ngIf="userLoggeIdIn !== null && userLoggeIdIn !== undefined" (vote)="checkUncheckFavourite($event)"
+                    [voted]="alreadyLikeUnlike"></app-favourite-component>
+            </h3>
         </div>
     </div>
     <hr>
@@ -50,5 +53,16 @@
             </p>
         </div>
     </div>
+
+    <div class="row container">
+        <div class="pull-left" *ngIf="prevName !== 'NONE' && prevName !== null && prevName !== undefined">
+            <i class="fa fa-arrow-left" aria-hidden="true"></i> <a (click) = "routeIt(prevName,prevLink)" class="curPointer">{{prevName}}</a>
+        </div>
+        <div class="pull-right" *ngIf="nextName !== 'NONE' && nextName !== null && nextName !== undefined">
+           <a class="curPointer" (click) = "routeIt(nextName,nextLink)">{{nextName}}</a> <i class="fa fa-arrow-right" aria-hidden="true"></i>
+        </div> 
+    </div>
+
+    <hr/>
     <div *ngIf="showComments" id="disqus_thread"></div>
 </div>

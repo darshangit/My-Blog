@@ -16,6 +16,7 @@ export class SubTopicComponent implements OnInit {
     mainTopicName: string
     mainTopicId: string
     userLoggedIn: string
+
     constructor(private topicService: TopicService, private route: ActivatedRoute, private router: Router,
         private googleLoginService: GoogleLoginService) {
     }
@@ -23,13 +24,16 @@ export class SubTopicComponent implements OnInit {
     ngOnInit(): void {
         this.mainTopicName = this.route.snapshot.params['topicName']
         this.mainTopicId = this.route.snapshot.params['id']
-
+        
         this.topicService.getSubTopics(this.route.snapshot.params['id']).subscribe((resp) => {
             this.subtopicResponse = resp
         })
     }
     getListing(subListings: SubTopicModel) {
-        this.router.navigate(['/subListings', subListings.subListingName, subListings.listingLinks, this.mainTopicName, this.mainTopicId]);
+        console.log('subListings', subListings)
+        this.router.navigate(['/subListings', subListings.subListingName, subListings.listingLinks,
+        this.mainTopicName, this.mainTopicId]);
+
         this.userLoggedIn = this.googleLoginService.getUserLoggedIn();
         if (this.userLoggedIn !== null && this.userLoggedIn !== undefined) {
             const userAction: UserAction = {
