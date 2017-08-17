@@ -14,7 +14,7 @@
         </div>
     </div>
     <hr>
-    <div class="well" *ngFor="let listing of subListingResponse">
+    <div class="well mainDesc" *ngFor="let listing of subListingResponse">
         <h4 class="text-primary">{{listing.title}}</h4>
 
         <div class="preDesc" *ngFor="let predesc of listing.preDescription">
@@ -55,10 +55,10 @@
     </div>
 
     <div class="row container">
-        <div class="pull-left" *ngIf="prevName !== 'NONE' && prevName !== null && prevName !== undefined">
+        <div class="pull-left mainDesc" *ngIf="prevName !== 'NONE' && prevName !== null && prevName !== undefined">
             <i class="fa fa-arrow-left" aria-hidden="true"></i> <a (click) = "routeIt(prevName,prevLink)" class="curPointer">{{prevName}}</a>
         </div>
-        <div class="pull-right" *ngIf="nextName !== 'NONE' && nextName !== null && nextName !== undefined">
+        <div class="pull-right mainDesc" *ngIf="nextName !== 'NONE' && nextName !== null && nextName !== undefined">
            <a class="curPointer" (click) = "routeIt(nextName,nextLink)">{{nextName}}</a> <i class="fa fa-arrow-right" aria-hidden="true"></i>
         </div> 
     </div>

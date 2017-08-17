@@ -1,4 +1,10 @@
 <div [routerLink]="['/subtopics',topic.subTopicId,topic.name]" class="well hoverwell thumbnail">
-    <img src="../../assets/{{topic.imgSrc}}" alt="{{topic.name}}">
+    <img *ngIf="topic.status === 'COMING_SOON'" class="image noCursor" src="../../assets/{{topic.imgSrc}}" alt="{{topic.name}}">
+    <img *ngIf="topic.status === 'ACTIVE'" class="image" src="../../assets/{{topic.imgSrc}}" alt="{{topic.name}}">
+
+    <div class="middle">
+        <div *ngIf="topic.status === 'ACTIVE'" class="text">{{topic.name}}</div>
+        <div *ngIf="topic.status === 'COMING_SOON'" class="text noCursor" >Coming Soon</div>
+    </div>
     <!--<span class="badge pull-right"><span class="glyphicon glyphicon-heart-empty"></span></span>-->
 </div>
