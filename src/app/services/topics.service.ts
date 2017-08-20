@@ -75,8 +75,8 @@ export class TopicService {
     }
 
     getSublistingByName(subListingName: string): Observable<SubListingEntityModel> {
-        // return this.http.get('https://topicsmicroservices.herokuapp.com/topics/blogs').map((response: Response) => {
-        //     return response.json() as BlogsResponse[];
+        // return this.http.get('https://topicsmicroservices.herokuapp.com/topics/sublistings/' + subListingName).map((response: Response) => {
+        //      return response.json() as SubListingEntityModel;
         // }).catch(this.handleError);
                 return this.http.get('/topics/sublistings/'+ subListingName).map((response: Response) => {
             return response.json() as SubListingEntityModel;
