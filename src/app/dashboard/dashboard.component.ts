@@ -18,11 +18,12 @@ export class DashboardComponent implements OnInit {
     ngOnInit() {
         this.topicsArray = this.activatedRoute.snapshot.data['topics']
         this.carousalList = this.activatedRoute.snapshot.data['carousal']
-
+        console.log('topicsArray',this.carousalList)
         this.$('#theCarousal').carousel()
     }
 
     openListing(carousal: CarousalResponse) {
+        console.log('carousal response',carousal)
         if (carousal.carousalType === 'Topic') {
             this.route.navigate(['/subListings', carousal.carousalName, carousal.carousalLink])
         }

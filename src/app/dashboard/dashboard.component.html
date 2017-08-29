@@ -18,7 +18,7 @@
                         <p>{{carousalList[0]?.carousalDescription}}</p>
                     </div>
                 </div>
-                <div class="item">
+                <div *ngIf="carousalList.length > 1" class="item">
                     <img (click) = "openListing(carousalList[1])" src="../../assets/carousal/{{carousalList[1]?.carousalImage}}" alt="2" class="img-responsive" />
                     <div class="carousel-caption">
                         <h4>{{carousalList[1]?.carousalName}}</h4>

@@ -20,4 +20,10 @@
             </app-collapsible-well>
         </div>
     </div>
+
+    <div *ngIf="subtopicResponse === undefined || subtopicResponse.length === 0">
+        <div class="well hoverwell thumbnail">
+            <img [routerLink]="['/app-dashboard']" src="../../assets/listings/Comming_soon.jpg"/>
+        </div>
+    </div>
 </div>

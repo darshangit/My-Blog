@@ -27,7 +27,11 @@ export class SubTopicComponent implements OnInit {
         
         this.topicService.getSubTopics(this.route.snapshot.params['id']).subscribe((resp) => {
             this.subtopicResponse = resp
+                    console.log('this.subtopicResponse',this.subtopicResponse)
+
         })
+
+        console.log('this.subtopicResponse',this.subtopicResponse)
     }
     getListing(subListings: SubTopicModel) {
         console.log('subListings', subListings)

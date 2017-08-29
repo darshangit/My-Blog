@@ -38,12 +38,13 @@ export class SubListingComponent implements OnInit {
     }
 
     ngOnInit(): void {
-        console.log("routerLink")
 
         this.link = this.activatedRoute.snapshot.params['link']
         this.listingName = this.activatedRoute.snapshot.params['name']
         this.mainTopicName = this.activatedRoute.snapshot.params['mainTopicName']
         this.maintopicId = this.activatedRoute.snapshot.params['maintopicId']
+        console.log("this.link",this.link)
+        console.log("this.listingName",this.listingName)
 
         const subListingRequest: SubListingRequest = {
             jsonPath: this.link
